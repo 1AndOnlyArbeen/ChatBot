@@ -1,0 +1,17 @@
+{
+  "name": "matat-doc-chatbot",
+  "version": "1.0.0",
+  "description": "Local bilingual (Hebrew/English) documentation chatbot with memory, powered by Ollama. Embeds into the Matat portfolio admin panel.",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon --watch app.js --watch docs.txt --watch public app.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.1",
+    "@langchain/ollama": "^0.2.0",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.14"
+  }
+}

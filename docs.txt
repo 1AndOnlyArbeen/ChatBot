@@ -1,0 +1,3382 @@
+nabin is a handsome boy
+
+
+ECOMMERCE PLATFORMS - KNOWLEDGE BASE
+Sources: Shopify, WooCommerce (WordPress), Wix
+System: ShipOS (Shipping Management App)
+
+############################################################
+SHOPIFY (WITH Ship os)
+############################################################
+
+OVERVIEW
+
+Shopify is a hosted ecommerce platform where stores are managed through an admin dashboard. ShipOS integrates as an app inside Shopify to handle shipment creation, label printing, tracking, and automation.
+Pricing tiers: Basic, Shopify, Advanced, Plus (higher tiers unlock advanced shipping and automation features).
+Best for: Businesses needing fast setup with integrated shipping automation via ShipOS.
+
+KEY CONCEPTS
+
+Orders and ShipOS Flow
+Orders are created in Shopify and must be manually or automatically sent to ShipOS. Only open orders (not older than 60 days) can be sent for shipment.
+
+Shipment Tab (ShipOS)
+Central workspace where all shipments are created, viewed, filtered, and managed. Includes actions like tracking, printing labels, canceling shipments, and adding notes.
+
+Shipping Company
+A courier selected from dropdown during shipment creation. Must be configured in Settings with a valid Client Code.
+
+Delivery Types
+Regular Delivery (standard), Collecting (pickup), Double (priority delivery). Selected during shipment creation.
+
+Collection Points
+Pickup locations configured using Google Maps API. Customers or system can select nearest location based on address.
+
+Label System
+Supports A4 (8 labels per page) and Thermal printer (single label rolls). Label settings control whether product details and variations are printed.
+
+Automatic Shipping
+Feature that creates shipments automatically when order reaches specific status. Requires license selection and mapping.
+
+Tracker Page
+Customizable tracking page for customers. Displays shipment status, courier info, and optionally order items and contact details.
+
+SMS System
+Automated SMS notifications triggered by shipping status or method using configured templates.
+
+ADMIN TASKS (STEP BY STEP)
+
+Send orders to ShipOS
+
+Go to Orders in Shopify admin
+Select orders using checkboxes
+Click the three horizontal dots (top menu of list)
+Click "Send to ShipOS Delivery"
+System redirects to ShipOS interface
+
+Create shipment (ShipOS screen)
+
+Select shipping company from dropdown (right panel)
+Choose delivery type:
+Regular Delivery
+Collecting
+Double
+Enter value in "How many packages"
+Click "Create Shipping"
+System generates shipment and assigns shipping/order number
+
+Important rule
+Only open orders less than 60 days old can be processed.
+
+Print label (single or multiple)
+
+Go to Orders
+Select order(s)
+Click three dots menu
+Select "Print ShipOS Label"
+OR
+In ShipOS Shipment list
+Select orders
+Click Print button
+Labels generated in batch
+
+Manual shipment creation
+
+Click "Create Shipping Manually" (available globally in ShipOS)
+Fill customer fields:
+First Name
+Last Name
+Phone Number
+Email
+City
+Street / Street Number
+Entrance / Apartment / Floor
+Select shipping company
+Select delivery type
+Select pickup location (optional)
+Enter package count
+Add note (optional)
+Click "Create Shipping"
+
+Export CSV
+
+Use search/filter bar
+Select shipping company from dropdown
+Click "Export CSV"
+System downloads filtered shipment data
+FILTERS AND ORDER MANAGEMENT
+
+Filter fields (auto-apply)
+
+Order number
+Customer name
+Address
+Phone
+Shipping number
+Label generated (yes/no)
+Delivery type
+Shipping status
+Date / Date range
+
+Reset filters
+Click "Clear All Filters"
+
+Order action icons (per row)
+
+Track shipping → opens live tracking view
+Eye icon → opens order/shipment detail screen (items, address, history)
+Print label → generates shipping label
+Notes icon → opens note input (saved internally)
+Cross icon → cancels shipment (confirmation required)
+
+Batch actions
+
+Select multiple orders using checkboxes
+Click Print → batch labels generated
+SETTINGS (Ship os INSIDE SHOPIFY)
+
+Add shipping partner
+
+Go to Settings tab
+Click Add (Connected Companies section)
+Select company from dropdown
+Enter display name
+Enter Client Code (provided by shipping company)
+
+Label settings
+
+Toggle "Print products in label" ON/OFF
+Toggle "Print variations in label" ON/OFF
+
+Collection Points configuration
+
+Enter Google Maps API Key
+Enter number of collection points to display
+Set shipping rate
+Optional:
+Enable "Include point code"
+Enable "Allow Discount"
+Click Update
+
+Shipping method mapping
+If order shipping method matches configured method, system automatically finds nearest collection point based on customer address.
+
+Automatic shipping setup
+
+Enable "Automatic Shipment Creation"
+Select license
+Select order status trigger
+Optional:
+Enable auto fulfill order
+Enable auto add shipping ID tag
+Enable self pickup fallback
+
+Label type selection
+
+A4 - 8 labels per page
+Thermal label printer
+SMS SETTINGS
+
+Configure SMS
+
+Go to SMS Settings tab
+Enter:
+Username
+Token
+Sender Name
+Click Submit
+
+Test SMS
+Click "Send Test Message" to verify configuration
+
+SMS Templates
+
+Go to SMS Template section
+Click Create New Template
+Select trigger:
+Shipping Status
+Shipping Method
+Select specific status or method
+Enter message text
+Click Submit
+Toggle template ON/OFF to activate
+TRACKER PAGE
+
+Setup process
+
+Go to Tracker Page tab
+Select template (Template 1, Template 2, Template 3)
+Click Continue
+
+Configuration
+
+Upload company logo
+Configure display of order items:
+Enable → show items
+Disable → hide items
+Enter contact details:
+Email
+Phone
+WhatsApp
+Facebook
+Instagram
+Click Continue
+
+Preview
+Click "Visit Demo" to preview tracker page
+
+Save
+Click Submit → tracker page becomes active
+
+PACKAGES
+
+Free vs Premium
+Free:
+
+Limited shipments
+Limited features
+
+Premium:
+
+Unlimited shipments
+Multiple shipping providers
+Advanced automation
+
+Upgrade flow
+
+Go to Packages tab
+Select Premium
+Click "Click to Join Here"
+Complete payment
+COMMON GOTCHAS
+
+Problem: Orders not appearing / Fix: Only open orders <60 days allowed
+Problem: Shipment not created / Fix: Shipping company not selected
+Problem: Labels blank / Fix: Enable product/variation printing
+Problem: Collection points not working / Fix: Missing Google Maps API key
+Problem: Auto shipping not triggering / Fix: Wrong order status mapping
+Problem: SMS not sending / Fix: Invalid credentials
+Problem: Tracker page empty / Fix: Template not saved
+
+############################################################
+WOOCOMMERCE (WORDPRESS WITH Ship os)
+############################################################
+
+OVERVIEW
+
+WooCommerce is a WordPress plugin. ShipOS integrates via plugin and requires manual configuration for shipping data due to customizable checkout fields.
+
+CORE DIFFERENCE FROM SHOPIFY
+
+WooCommerce allows custom checkout fields → ShipOS cannot auto-detect → requires manual field mapping.
+
+SHIPMENT FLOW
+
+Shipment tab actions
+
+Create Shipment button → start shipment
+Trash icon → delete order
+Send Delivery → send selected orders
+Delete → remove selected products
+Clear Choice → deselect all selections
+
+Manual shipment
+Same steps as Shopify but required more often due to customization.
+
+Shipment management
+
+Track shipping
+View order (eye icon)
+Print label
+Add notes
+Cancel shipment
+SETTINGS
+
+Shipping partner
+Same process as Shopify (company + client code)
+
+Label settings
+
+Print products toggle
+Print variations toggle
+Label type (A4 or Thermal)
+
+Order sync settings
+Defines which WooCommerce order statuses are synced to ShipOS.
+
+Automatic shipping
+
+Enable toggle
+Select license
+Map shipping method
+Define trigger status
+CRITICAL: CUSTOM SHIPPING DATA
+
+Must map WooCommerce fields manually:
+
+Apartment Field Key
+Entrance Field Key
+Floor Field Key
+House No Field Key
+Order Comment Field Key
+Phone Number Field Key
+
+Without mapping → address and notes will not be captured.
+
+SMS, TRACKER, PACKAGES
+
+Same structure and behavior as Shopify implementation.
+
+COMMON GOTCHAS
+
+Problem: Missing address data / Fix: Field mapping not configured
+Problem: Shipment creation fails / Fix: Wrong field keys
+Problem: Labels incorrect / Fix: Label settings misconfigured
+Problem: Auto shipping fails / Fix: Status mapping incorrect
+
+############################################################
+WIX (WITH Ship os)
+############################################################
+
+OVERVIEW
+
+Wix is a hosted website builder. ShipOS integrates as an app with simplified configuration compared to WooCommerce.
+
+SHIPMENT FLOW
+Select orders
+Send to ShipOS
+Select shipping company
+Select delivery type
+Enter package count
+Click Create Shipping
+
+Manual shipment
+Same form as Shopify:
+
+Customer details
+Shipping options
+Package count
+Create shipment
+SETTINGS
+
+Shipping partner
+
+Add company
+Enter client code
+Save
+
+Label settings
+
+A4 or thermal
+Toggle product details
+
+Automatic shipping
+
+Enable
+Configure triggers
+SMS SETTINGS
+
+Same as Shopify:
+
+Credentials
+Templates
+Trigger-based messages
+TRACKER PAGE
+
+Same configuration flow:
+
+Template
+Logo
+Contact info
+Preview
+Save
+COMMON GOTCHAS
+
+Problem: Limited flexibility / Fix: Use built-in options
+Problem: Missing data / Fix: Ensure app permissions
+Problem: SMS failure / Fix: Incorrect credentials
+
+############################################################
+COMPARISON
+############################################################
+
+Feature	Shopify	WooCommerce	Wix
+Integration	Native app	Plugin + mapping	App
+Setup complexity	Low	High	Low
+Field mapping	Not required	Required	Minimal
+Automation	Strong	Config-heavy	Moderate
+Flexibility	Medium	Very high	Low-medium
+
+############################################################
+GLOSSARY
+############################################################
+
+Shipment: Delivery created from order
+Shipping Partner: Courier company
+Client Code: Authentication credential
+Collection Point: Pickup location
+Label: Printable shipment document
+Thermal Printer: Label printing device
+A4 Labels: Multi-label page format
+Order Status: Lifecycle stage
+Auto Shipping: Automatic shipment creation
+Field Mapping: Linking custom fields
+API Key: External service authentication
+Tracker Page: Customer tracking page
+SMS Template: Message configuration
+Delivery Type: Shipping option
+Package Count: Number of parcels
+Order Sync: Data synchronization
+Fulfillment: Order completion
+Batch Printing: Printing multiple labels
+Filter: Search condition
+Frontend: Customer UI
+Backend: Admin system============================================================
+SHIPOS DOCUMENTATION - BILINGUAL (ENGLISH + HEBREW)
+תיעוד ShipOS - דו-לשוני (אנגלית + עברית)
+============================================================
+Source: https://support.matat.io/hc/shipos/
+מקור: https://support.matat.io/hc/shipos/
+============================================================
+
+
+############################################################
+# PART 1: ENGLISH
+############################################################
+
+
+============================================================
+WHAT IS SHIPOS?
+============================================================
+
+Overview
+
+ShipOS is a shipping management platform built specifically for online stores in Israel. It lets you manage your entire shipping process from one place -- from creating a shipment to delivering it to your customer's door.
+
+Who is ShipOS For?
+
+ShipOS is for any online store owner in Israel, whether you ship a few packages a day or hundreds. If you sell online and need to ship products, ShipOS is designed for you.
+
+Supported Platforms
+
+ShipOS works with the most popular e-commerce platforms:
+- WooCommerce -- A dedicated plugin for WordPress stores with full integration
+- Wix -- An app for Wix online stores
+- Shopify -- An app for Shopify online stores
+- Direct Connection -- Open connection for any custom system
+
+What Can ShipOS Do?
+
+CREATE SHIPMENTS
+- Create a shipment with one click directly from an order
+- Create shipments in bulk -- select multiple orders and ship them all at once
+- Create a shipment manually without an existing order
+- Automatic shipping -- ShipOS creates a shipment automatically when a new order comes in
+
+PRINT SHIPPING LABELS
+- Print a single label or labels for multiple orders at once
+- Works with thermal label printers and regular A4 printers
+- Option to print product details on the label
+- Connect to PrintNode for remote printing
+
+TRACK SHIPMENTS
+- Real-time tracking of every shipment
+- A dedicated tracking page for your customers
+- Automatic order status updates in your store
+
+PICKUP POINTS
+- Show pickup locations at checkout so customers can collect their package nearby
+- Support for list view, map view, or both
+- Automatic syncing of pickup locations from your shipping company
+
+RETURNS AND EXCHANGES
+- A return portal where customers can request returns on their own
+- Set your own return policy
+- Manage all return requests from one dashboard
+
+Shipping Companies
+
+ShipOS connects with 15 Israeli shipping companies, including Chita, HFD, Orian, Cargo, LionWheel, GetPackage, Wolt Drive, and more. For the full list, see Supported Shipping Companies.
+
+How to Get Started
+
+1. Install the plugin/app -- Add ShipOS to your store
+2. Create an account -- Sign up for a ShipOS account
+3. Connect a shipping company -- Enter the credentials you received from your shipping company
+4. Set up your preferences -- Walk through the setup wizard
+5. Start shipping -- Create shipments directly from your store
+
+Support
+- Website: shipos.co.il
+- App: app.shipos.co.il
+- Support email: support@shipos.co.il
+
+
+============================================================
+SUPPORTED SHIPPING COMPANIES
+============================================================
+
+ShipOS connects with over 60 shipping companies across 14 different delivery providers in Israel.
+
+1. BALDAR
+- Service: Nationwide courier delivery
+- Companies: 30+ (Rimon Deliveries, Negev eCommerce, Octopus Deliveries, Ratz Plus, L.a delivery, Shir Deliveries, Rom Express, Flash Deliveries, Tiger, Fix Deliveries, Gal Deliveries, Lan Deliveries, Drive Deliveries, Shahaf Deliveries, Kiwi Deliveries, Kings, Dvora, Eliyahu HaMahir, Shigor Yashir, Amagon, Olam HaMishlokhim, etc.)
+- Needs: Connection code
+
+2. RUN SOFTWARE (CHITA)
+- Service: Nationwide courier delivery
+- Companies: 8 (Chita Deliveries, YDM, Focus Deliveries, K Express, Katz Deliveries, Speed Way Delivery, Masof)
+- Needs: Connection code + API token (request from shipping company)
+
+3. DONE
+- Service: Courier delivery with pickup points
+- Companies: 3 (Done, Kumi, Negev Done)
+- Needs: Connection code
+
+4. SELF PICKUP
+- Service: Customer pickup from your store
+- Needs: Nothing (auto setup); requires matching shipping method in store
+
+5. CARGO
+- Service: Delivery and logistics with pickup points
+- Needs: Connection code
+
+6. LIONWHEEL
+- Service: Courier delivery
+- Companies: 2+ (LionWheel, Miron Deliveries)
+- Needs: Connection code + API key + API secret
+
+7. ORIAN
+- Service: Courier delivery and warehousing (WMS)
+- Companies: 2 (Orian Distribution, Orian Regular)
+- Needs: Connection code + Username + Password
+
+8. GETPACKAGE (PREMIUM)
+- Service: Same-day delivery
+- Needs: Connection code (requires separate activation in ShipOS account)
+
+9. SHIPOS LABEL (INDEPENDENT)
+- Service: Self-managed delivery (creates shipments + ShipOS labels without external company)
+- Needs: Nothing
+
+10. WOLT DRIVE
+- Service: Express delivery
+- Needs: Merchant ID + Venue ID (requires active Wolt Drive merchant account)
+
+11. ZIG ZAG
+- Service: Courier delivery
+- Needs: Connection code
+
+12. SHIP UPS
+- Service: International shipping (UPS)
+- Needs: Connection code
+
+13. HFD (NEW)
+- Service: Courier delivery
+- Companies: 2 (HFD, Masof)
+- Needs: Connection code + API token (request from HFD)
+
+14. TAPUZ
+- Service: Courier delivery
+- Needs: Connection code + API key
+
+HOW DO I CONNECT A SHIPPING COMPANY?
+1. Open the ShipOS dashboard inside your store
+2. Go to the setup wizard or the Licenses page
+3. Select the shipping company you want to connect
+4. Enter the credentials you received from that shipping company
+5. Enter your pickup address (where packages are collected from)
+6. Save and check that the connection is working
+
+
+============================================================
+FREQUENTLY ASKED QUESTIONS
+============================================================
+
+How much does ShipOS cost?
+ShipOS works on a subscription model with different plans based on shipment volume and features. Visit shipos.co.il or contact sales for pricing.
+
+How do I connect a shipping company?
+1. Open ShipOS dashboard
+2. Click Licenses or the Setup Wizard
+3. Pick your shipping company
+4. Enter credentials (Client Code / Username / Password)
+5. Enter pickup address
+6. Save and verify connection
+
+What do I do if a shipment fails?
+Common causes:
+1. Wrong/expired credentials
+2. Incomplete address (need city, street, house number)
+3. Invalid phone number (must be Israeli format)
+4. Expired license
+5. Connection issue with ShipOS server
+
+How do I print a label?
+Single: Open order > In ShipOS box click Print Label > PDF downloads
+Bulk: Select orders in list > Bulk Actions > Print Labels > one PDF for all
+
+You can choose thermal labels or A4 in ShipOS settings.
+
+What are pickup points?
+Pickup points are physical locations (convenience stores, post offices, parcel lockers) where customers can collect their package instead of getting it delivered home.
+
+How does it work?
+1. Customer places order
+2. At checkout, picks nearby pickup location
+3. Package delivered to that location
+4. Customer notified when ready
+5. Customer picks it up
+
+How to enable pickup points:
+1. Make sure shipping company supports them
+2. ShipOS settings > Pickup Point Settings
+3. Enable Pickup Points
+4. Sync from shipping company
+5. Create "ShipOS Shipping" method in shipping zones
+
+How do I set up automatic shipping?
+1. ShipOS dashboard > Settings > Shipping
+2. Turn on Automatic Shipping
+3. Set: default company, status trigger, delivery type, package count
+4. Important: it creates a shipment for EVERY order at that status — verify settings before enabling
+
+What if there's a connection error?
+1. Check internet
+2. Refresh page
+3. Clear cache
+Firewall/Cloudflare: allow ShipOS server IPs:
+  IPv4: 5.75.225.51
+  IPv6: 2a01:4f8:c012:c6d4::1
+WooCommerce store keys: WooCommerce > Settings > Advanced > check ShipOS connection keys; click Reauthorize if missing/expired.
+
+Does ShipOS work with Hebrew-language stores?
+Yes. Designed for the Israeli market: full Hebrew interface, RTL layout, Hebrew addresses, Israeli phone numbers.
+
+Can I connect more than one shipping company?
+Yes. Multiple connections supported. Each is a separate "license". Choose per-order or set a default for automatic.
+
+Does ShipOS support international shipping?
+Yes via ShipUPS (UPS network). Other companies are Israeli domestic.
+
+Can I use different shipping companies for different products?
+Yes. Set up shipping methods per shipping zone in WooCommerce, assign different companies to each.
+Example zones:
+- Tel Aviv: Wolt Drive (same-day)
+- Rest of Israel: Zig Zag (standard)
+- International: ShipUPS
+
+Do I need a Google Maps API key?
+Only if you want a MAP view of pickup points at checkout. List view doesn't need it.
+Setup: Google Cloud Console > enable Maps JavaScript API > create key > paste in ShipOS pickup point settings.
+
+Can I customize the tracking page?
+Yes. Logo, brand colors, contact info, multiple page designs.
+
+Is there a mobile app?
+No separate mobile app for store owners. Dashboard works in any browser. Customer tracking page is mobile-friendly.
+
+What label printers are supported?
+- Thermal: Zebra, DYMO, TSC etc. (use "Thermal" format)
+- Regular: any A4 inkjet/laser (use "A4" format)
+
+
+============================================================
+TROUBLESHOOTING
+============================================================
+
+"CANNOT CONNECT TO SHIPOS SERVER"
+1. Firewall: allow IPv4 5.75.225.51 and IPv6 2a01:4f8:c012:c6d4::1
+2. Cloudflare: Security > WAF > add exception for ShipOS server addresses
+3. Verify HTTPS certificate is valid (not expired)
+4. Hosting: ask provider to allow outgoing connections to api.shipos.co.il
+
+"CONSUMER SECRET IS INVALID"
+1. WordPress admin > WooCommerce > Settings > Advanced > look for ShipOS keys
+2. If missing/expired:
+   - Open ShipOS dashboard > click Reauthorize
+3. If still failing:
+   - Delete ShipOS keys in WooCommerce
+   - Re-authorize from ShipOS dashboard
+Important: only delete ShipOS keys, not other services'.
+
+"ERROR CREATING SHIPMENT"
+1. Verify shipping company credentials (try logging in to their system with the same creds)
+2. Address must include city + street + house number, no unusual characters
+3. Phone: 10 digits, starts with 05 (mobile) or valid area code, no spaces/special chars
+4. Pickup (sender) address set up correctly
+5. Delivery type matches what shipping company supports
+
+"GOOGLE MAPS KEY REQUIRED"
+1. Google Cloud Console > new project
+2. Enable Maps JavaScript + Places
+3. Create key, restrict to your domain
+4. ShipOS settings > Pickup Point Settings > paste key
+Tip: choose "List" display to avoid needing a key.
+
+SECURITY CERTIFICATE ISSUES
+1. Test cert at SSL Labs
+2. Ask hosting provider to update certs / enable modern TLS
+
+PLUGIN CONFLICTS (WOOCOMMERCE)
+1. Deactivate all plugins except WooCommerce + ShipOS
+2. Reactivate one by one to find conflict
+Common offenders: cache plugins, security plugins (Wordfence, iThemes Security), other shipping plugins, checkout customization plugins.
+3. Try a default theme (Twenty Twenty-Four)
+
+CLOUDFLARE BLOCKING SHIPOS
+Cloudflare dashboard > Security > WAF > Custom rules > new rule:
+  Name: Allow ShipOS
+  Condition: IP Source equals 5.75.225.51
+  Action: Allow
+Add another for IPv6 2a01:4f8:c012:c6d4::1.
+Watch for "Super Bot Fight Mode" blocking legitimate services.
+
+ORDERS AREN'T SYNCING
+1. WooCommerce > Settings > Advanced > Webhooks: ensure ShipOS notifications Active
+2. ShipOS dashboard > click Sync Orders for manual sync
+3. Verify ShipOS has read/write permissions on store data
+
+LABEL ISN'T PRINTING CORRECTLY
+1. Settings > Label > pick correct type (thermal vs A4)
+2. Check rotation, try Fit to page, verify printer paper size
+3. Thermal: roll width usually 10cm, check resolution
+
+PLUGIN WON'T INSTALL
+- WordPress 5.0+, WooCommerce 5.0+, PHP 7.4+
+- Folder wp-content/plugins needs 755 permissions
+- Try manual install: download ZIP, extract to wp-content/plugins/, activate
+
+CONTACT SUPPORT
+Email: support@shipos.co.il
+Chat: through ShipOS dashboard on your site
+Provide: site URL, problem description, full error message, plugin/WC/WP versions, shipping company, order number.
+
+
+============================================================
+GETTING STARTED CHECKLIST
+============================================================
+
+1. CONNECT A SHIPPING COMPANY
+- ShipOS dashboard > Settings > Licenses > Add new license
+
+2. SET YOUR COLLECTION ADDRESS
+- In license settings, enter pickup address (street + house + city)
+- Match what shipping company has on file
+
+3. ENABLE PICKUP POINTS (optional)
+- Settings > Pickup Point Settings > enable
+- Sync from shipping company
+- Add ShipOS shipping method to WooCommerce shipping zones
+
+4. SET UP AUTOMATIC SHIPPING (optional)
+- Settings > Shipping > Enable Automatic Shipping
+- Pick triggering order status + default shipping company
+
+5. CHOOSE LABEL FORMAT
+- Settings > Labels > Thermal or A4
+
+6. CREATE FIRST SHIPMENT
+- Open order > ShipOS box > Create Shipment
+- Pick company, delivery type, click Create
+
+7. PRINT FIRST LABEL
+- ShipOS box > Print Label > PDF downloads
+
+
+============================================================
+CREATING MANUAL SHIPMENTS
+============================================================
+
+A manual shipment lets you create a delivery without an existing order. Use cases:
+- Phone orders
+- Replacements for damaged/lost items
+- Gifts outside normal flow
+- Internal transfers
+- Product samples
+
+How to create:
+1. ShipOS dashboard from store admin
+2. Click Manual Shipment / Create New Shipment
+3. Fill recipient details:
+   - Recipient name (required) - full name
+   - Phone (required) - mobile, 10 digits starting 05
+   - City (required)
+   - Street (required)
+   - House number (required)
+   - Apartment / Floor (optional)
+   - Email (optional, for tracking updates)
+4. Choose shipping company
+5. Select delivery type (regular, two-way etc.)
+6. Set number of packages
+7. Add courier notes (optional)
+8. Click Create Shipment
+
+After creation:
+- Tracking number generated
+- Can print label
+- Appears in shipment list
+- Status tracked through delivery process
+
+Differences vs regular shipments:
+- Not linked to any store order
+- Won't update any order status
+- Won't appear on order page in WC/Shopify/Wix
+- Will appear in ShipOS dashboard + reports
+
+Available on all platforms: WooCommerce, Shopify, Wix.
+ShipOS doesn't store an address book for manual shipments — keep frequent recipients somewhere handy.
+
+
+============================================================
+INSTALLING THE SHIPOS PLUGIN (WOOCOMMERCE)
+============================================================
+
+Requirements:
+- WordPress 5.0+
+- WooCommerce installed + active
+- PHP 7.4+
+- HTTPS enabled
+
+Install from WordPress:
+1. WP admin > Plugins > Add New
+2. Search "Shipos" or "Deliver via Shipos"
+3. Find "Deliver via Shipos for WooCommerce" > Install Now
+4. Activate (auto-redirects to ShipOS dashboard)
+
+Install from ZIP:
+1. Plugins > Add New > Upload Plugin
+2. Choose ZIP file > Install Now > Activate Plugin
+
+Install via FTP (advanced):
+1. Extract ZIP
+2. Upload wc-shipos-delivery folder to wp-content/plugins/
+3. WP admin > Plugins > Activate
+
+After activation:
+1. Auto-redirects to ShipOS dashboard
+2. Sign up or log in
+3. Authorize the connection
+4. Setup wizard guides you through everything
+
+Accessing the dashboard:
+- Sidebar: "Deliver via Shipos"
+- Or: WooCommerce > Settings > Shipos Delivery tab
+
+Updating: notice on Plugins page > Update Now (back up site first).
+
+Removing:
+1. Plugins > Deactivate
+2. Click Delete
+Note: removes local settings only. Your ShipOS server data is preserved.
+
+
+============================================================
+SETUP WIZARD (WOOCOMMERCE)
+============================================================
+
+The setup wizard guides you through 5 initial steps after connecting a store.
+
+STEP 1: CONNECT A SHIPPING COMPANY
+- Pick company from dropdown
+- Enter Client Code, username, password
+- Enter pickup address (city, street, house number, zip, contact name, phone)
+
+STEP 2: PICKUP POINTS
+- Enable to let customers collect from pickup locations
+- System auto-syncs locations from shipping company
+- Set regular and discounted delivery prices
+- Choose checkout display: list, map, or both
+- Map view requires a Google Maps key
+
+STEP 3: SHIPPING SETTINGS
+- Configure automatic shipment creation
+- Pick order status that triggers shipments
+- Choose label type (thermal or A4)
+- Whether to print product list on labels
+- Optionally sync existing orders into ShipOS
+
+STEP 4: SELF PICKUP
+- Enable customer self-pickup from your business
+- Pick the matching WooCommerce shipping method (typically "Local Pickup")
+
+STEP 5: FINISH
+- Summary of all configured settings
+- Access the dashboard to create shipments, test checkout, adjust settings, or add more shipping companies
+
+You can return to and update wizard settings anytime from the ShipOS dashboard Settings page.
+
+
+============================================================
+CREATING SHIPMENTS (WOOCOMMERCE)
+============================================================
+
+Single shipment from order:
+1. WP admin > WooCommerce > Orders
+2. Click order
+3. ShipOS box on the side
+4. Configure:
+   - Shipping company (auto if only one)
+   - Delivery type: Standard (one-way) or Two-way (deliver + pickup something on return, e.g. cash)
+   - Number of packages (default 1)
+   - Notes for courier (optional)
+5. Click Create Shipment
+6. Tracking number shown
+
+Bulk shipments:
+1. WooCommerce > Orders
+2. Check the boxes for orders to ship
+3. Bulk Actions: "Create Shipments - ShipOS" > Apply
+4. Uses default shipping company, standard delivery, 1 package each
+Important: all selected orders need complete address + valid phone, otherwise individual ones fail.
+
+Manual shipment:
+1. ShipOS dashboard > Manual Shipment / Create New Shipment
+2. Fill: name, phone, address, company, delivery type, packages, notes
+3. Click Create Shipment
+Manual shipments don't link to a WC order, only show in ShipOS dashboard.
+
+Automatic shipping:
+1. ShipOS dashboard > Settings > Shipping
+2. Turn on Automatic Shipping
+3. Set: default company, status trigger (e.g. "Processing"), delivery type, default package count
+
+Use auto when:
+- All orders go through same company
+- Delivery type identical for all
+- Want to save manual time
+Don't use when:
+- Different companies for different orders
+- Mixed standard / two-way
+- Variable package counts
+
+Delivery types:
+- Standard: one-way to customer
+- Two-way: courier delivers + picks something up on return (cash, documents, returns) — not all companies support
+
+Common errors:
+"Invalid address" — needs city + street + house number, check spelling
+"Invalid phone number" — 10 digits starting 05 (mobile) or valid area code
+"License not active" — check expiry, sync licenses
+"Server error" — retry, check connection, contact support
+
+
+============================================================
+PRINTING LABELS (WOOCOMMERCE)
+============================================================
+
+Single label from order page:
+1. WC > Orders > click order
+2. ShipOS box (active shipment must exist)
+3. Click Print Label > PDF opens / downloads
+
+Single label from ShipOS dashboard:
+1. ShipOS dashboard > Orders or Shipments
+2. Find order/shipment, click label icon
+
+Bulk labels (WC orders list):
+1. WooCommerce > Orders
+2. Select orders
+3. Bulk Actions: "Print Labels - ShipOS" > Apply
+4. One PDF with all labels downloads
+
+Bulk labels (ShipOS dashboard):
+1. ShipOS > Orders > select > Print Labels
+Each label on its own page so you can print + cut.
+
+Label types:
+- Thermal: thermal label printers (Zebra, Dymo etc.), label-roll size, no cutting needed
+- A4: regular printer, full A4 page, must cut after printing
+
+Settings (ShipOS dashboard > Settings):
+- Rotation: 0 / 90 / 180 degrees
+- Fit to page: on/off
+- Print products on label (with name, SKU, variations)
+
+PRINTNODE (remote printing):
+1. Account at PrintNode
+2. Install PrintNode client on the printer's computer
+3. ShipOS Settings > Label > paste PrintNode connection code
+4. Pick printer
+5. Save
+After setup, "Print Label" sends straight to the printer (no PDF download).
+
+Common label issues:
+- Blank label: shipment not created yet, or company doesn't support label printing
+- Cut off: check rotation, enable Fit to page, check printer paper size
+- Barcode won't scan: print quality too low, increase resolution, check label condition
+- Won't download: check popup blocker, try different browser, verify shipment exists
+
+
+============================================================
+PICKUP POINTS (WOOCOMMERCE)
+============================================================
+
+Pickup points are convenience stores, post offices, parcel lockers, dedicated centers where customers collect their package.
+
+Why use:
+- Lower cost than home delivery
+- Flexible for customers
+- Fewer failed deliveries
+- Better for environment
+
+Enable pickup points:
+1. WP admin > WooCommerce > Settings > Shipos Delivery > Pickup Settings
+2. Check Enable Pickup Points
+3. Save
+Note: requires shipping company support.
+
+Sync locations:
+- Auto on first enable
+- Manual: refresh button next to sync status
+- Status: "Last synced: X minutes ago" or "Not yet synced"
+Tip: sync periodically to keep list current.
+
+Create ShipOS Shipping method:
+1. WC > Settings > Shipping > pick zone (e.g. Israel)
+2. Add shipping method > "ShipOS Shipping" > Add
+3. Edit method:
+   - Name (shown to customer): e.g. "Pickup from a nearby location"
+   - Enabled: yes
+
+Set prices:
+- Regular price: standard pickup delivery price
+- Discounted price: lower price above an order threshold
+- Minimum amount for discount: order total to qualify
+Example:
+  Regular 25 NIS, Discounted 15 NIS, Min 200 NIS
+  Order >200 NIS pays 15, order <200 NIS pays 25
+Free pickup: set price to 0.
+
+Display options:
+- LIST (recommended): customer picks city > sees locations > selects. Fast, no Google Maps key needed
+- MAP: Google Maps with pins. Visual, but needs Maps key, slower
+- BOTH: map + list. Customer picks either way; choose default
+
+Google Maps key (only for map/both):
+1. Google Cloud Console > new/existing project
+2. APIs & Services > Library > enable Maps JavaScript + Places
+3. APIs & Services > Credentials > Create Credentials > pick a key
+4. Copy key > paste in ShipOS pickup settings
+5. Restrict (recommended): HTTP referrers > your-store.com/* + Maps JS + Places
+
+Customer experience at checkout:
+1. Fill order details
+2. Pickup point option appears in shipping methods
+3. Selects it: list dropdown or map appears
+4. Picks pickup point
+5. Confirmation shows selected location's address
+
+Troubleshooting:
+- Pickup not at checkout: enabled in settings? synced at least once? ShipOS Shipping method exists in zone? method enabled?
+- Map won't load: Maps key set? services enabled? check browser console (F12); key not restricted to wrong domain
+- "Google Maps key required": switch to list-only or enter a key
+
+
+============================================================
+INSTALLING SHIPOS ON WIX
+============================================================
+
+Requirements:
+- Active Wix store with Wix eCommerce
+- ShipOS account (or create during setup)
+- At least one shipping company account
+
+Step 1: Install from Wix App Market
+1. Wix Dashboard > Apps > Visit App Market
+2. Search "ShipOS" > select app
+3. Add to Site > pick site > Install
+
+Step 2: Authorize
+1. Review permissions: read/manage orders, products, fulfillment
+2. Click Approve
+
+Step 3: Create account / log in
+- New: Create Account > fill name, email, phone, password > Register > verify email
+- Existing: Log In with email + password
+Tip: same login works across WC/Wix/Shopify ShipOS accounts.
+
+Step 4: Connect first shipping company
+1. ShipOS dashboard > Settings > Licenses
+2. Add New License
+3. Pick company > enter credentials > Save
+Status should be Active. Try test shipment.
+
+Troubleshooting:
+- App not appearing: refresh dashboard > Apps > Manage Apps
+- Authorization fails: clear browser cache, different browser
+- Can't create account: email already registered, use Forgot Password
+- License validation fails: verify creds with shipping company
+
+
+============================================================
+CREATING SHIPMENTS ON WIX
+============================================================
+
+Single from order:
+1. ShipOS app from Wix Dashboard
+2. Orders > click order
+3. Create Shipment
+4. Fields (most auto-fill from order):
+   - Shipping company (required)
+   - Delivery type (required): standard, express, pickup, locker
+   - Recipient name, address, phone, packages (required)
+   - Notes (optional)
+5. Review > Create
+6. Tracking number generated
+
+Bulk:
+1. Orders > select with checkboxes
+2. Bulk Create Shipments
+3. Set defaults (company, delivery type, package settings)
+4. Review > Create All
+- Failed individuals show error; rest still process
+- Cannot be reversed; verify selections first
+
+Manual (no order):
+1. Create Shipment / Shipments > New Manual Shipment
+2. Fill all fields manually: company, delivery, recipient, address, phone, email, notes, packages
+3. Create Shipment
+Useful for returns, internal transfers, custom deliveries.
+
+Field meanings:
+- Shipping company (license): which company; pick by speed/location/cost
+- Delivery type: standard / express / pickup / locker
+- Notes: courier notes (printed on label) vs internal notes (only ShipOS)
+- Packages: number, weight kg, dimensions cm
+
+How Wix orders get fulfilled:
+1. ShipOS creates shipment > sends to company
+2. Company returns tracking number
+3. ShipOS updates Wix order:
+   - Status > Fulfilled
+   - Tracking number added
+   - Wix sends fulfillment notification (if configured in Wix Notifications)
+
+Status mapping:
+- Shipment Created/In Transit/Delivered → Fulfilled
+- Cancelled → reverts to previous status
+
+To cancel a fulfilled order: cancel shipment in ShipOS first, then manually update in Wix.
+
+Troubleshooting:
+- "License not found": check Settings > Licenses
+- Address validation fails: check typos, city, street
+- No tracking number: refresh, give the company a few minutes
+- Bulk partial fail: read individual error, fix, retry
+- Order not fulfilled in Wix: check connection still active, re-authorize if needed
+
+
+============================================================
+PICKUP POINTS ON WIX
+============================================================
+
+Enable:
+1. ShipOS from Wix Dashboard > Settings > Pickup Points
+2. Toggle Enable Pickup Points to On
+3. Pick which licenses offer pickup point delivery
+4. Save
+Note: only some companies support pickup points.
+
+Viewing locations:
+1. Pickup Points > pick company from dropdown
+2. Map + list show all available locations
+Each shows: name, address, city, hours, type (store/locker/post office)
+Tip: search bar to filter by city.
+
+Pricing:
+1. Customer enters address or browses pickup map
+2. ShipOS checks shipping company for available locations
+3. Price based on company pricing + flat-rate rules + distance (some companies)
+Setup:
+1. Settings > Shipping Rates
+2. Pickup Point Rates: fixed rate / free shipping threshold / company-based rate
+Tip: free pickup over a threshold encourages spend.
+
+Toggle specific points:
+1. Pickup Points > pick company > find point
+2. Toggle to Inactive — won't appear at checkout
+3. Toggle back to reactivate
+Warning: deactivating doesn't affect already-shipped packages.
+
+Customer experience:
+1. Cart > checkout > shipping step
+2. Pickup Point option alongside standard
+3. "Choose Pickup Point" > map/list of nearby
+4. Pick > address replaces shipping address > rate updates
+5. Complete checkout
+
+Troubleshooting:
+- Not showing at checkout: enabled in settings + supporting license active
+- Map won't load: check Google Maps key
+- Prices not calculating: check Settings > Shipping Rates
+- Specific location missing: company may have removed it, sync to refresh
+- Wrong point selected: change in order details before creating shipment
+
+
+============================================================
+WIX SETTINGS
+============================================================
+
+GENERAL (Settings > General):
+- Store Name (on labels + notifications)
+- Store Address (return/sender)
+- Contact Email
+- Contact Phone (on labels)
+
+DEFAULT SHIPPING:
+- Default shipping company
+- Default delivery type
+- Default package weight (kg)
+- Default dimensions (L x W x H, cm)
+- Auto-create shipments on new order
+- Print products on label
+- Include logo on label
+
+LABEL FORMAT: Thermal (10x15cm) or A4
+
+SMS (Settings > SMS):
+1. Enable SMS Notifications
+2. Pick triggers: Shipment created / Out for delivery / Delivered / Pickup ready
+
+Customizable templates with placeholders:
+{customer_name}, {order_number}, {tracking_number}, {tracking_url}, {store_name}, {pickup_location}
+
+Example: "Hi {customer_name}, your order #{order_number} from {store_name} has been shipped! Track: {tracking_url}"
+
+Warning: SMS may have plan-based costs. Keep messages short with tracking link.
+
+TRACKING PAGE (Settings > Tracker Page):
+- Logo upload
+- Brand color
+- Background color
+- Header / footer text
+- Social media links
+Tracking URL: https://app.shipos.co.il/track/{tracking_number}
+Auto-included in SMS / order emails via {tracking_url}.
+
+ORDER SYNC (Settings > Sync / Webhooks):
+ShipOS auto-receives Wix events: new order, order updated, order fulfilled.
+If sync stops:
+1. Check connections show Connected
+2. Click Refresh to re-register
+3. Verify Wix permissions in Apps > Manage Apps
+4. Reinstall app if needed
+Warning: removing sync stops order updates entirely.
+
+
+============================================================
+PRINTING LABELS ON WIX
+============================================================
+
+Formats:
+- Thermal: 10 x 15 cm, dedicated thermal printer (Zebra, Dymo)
+- A4: 21 x 29.7 cm, regular office printer (centered on page)
+
+Set default:
+1. Settings > General (or Labels) > Label Format
+2. Pick Thermal or A4 > Save
+
+Single label:
+1. Shipments > find shipment
+2. Print Label icon
+3. PDF opens or downloads
+Or from order details > Shipment section > Print Label.
+Note: requires successfully created shipment with tracking number.
+
+Bulk labels:
+1. Shipments > select multiple
+2. Bulk Print Labels
+3. Single PDF with all labels
+Tips: ~50-100 labels per batch is practical; same format for all; failed labels show error, rest still print.
+Tip: print batches grouped by shipping company for easier sorting.
+
+Label content:
+- Sender, recipient, barcode + tracking number, company logo, order number
+- Package weight + count (if set)
+- Product list (if "Print Products on Label" enabled)
+
+Customize (Settings > General/Labels):
+- Print Products on Label
+- Include Store Logo
+- Show COD Amount
+
+Troubleshooting:
+- PDF won't open: popup blocker, allow popups from ShipOS
+- Blank label: shipment not fully processed, retry
+- Barcode won't scan: print quality, don't scale PDF
+- Wrong format: check default
+- Thermal printing on A4: printer settings to 10x15
+- Bulk missing labels: check individual shipment status
+
+Recommended printers:
+- High volume: Zebra ZD220, Zebra GK420d
+- Small-medium: Dymo LabelWriter 4XL
+- Standard: any laser/inkjet (A4 + cut)
+
+
+============================================================
+INSTALLING SHIPOS ON SHOPIFY
+============================================================
+
+Requirements:
+- Active Shopify store
+- ShipOS account (or create during setup)
+- At least one shipping company account
+
+Step 1: Install from Shopify App Store
+1. Shopify Admin > Apps > Shopify App Store (or apps.shopify.com)
+2. Search "ShipOS" > Add app
+3. Confirm install in Shopify admin
+
+Step 2: Authorize
+Review permissions:
+- Read/manage orders
+- Read/manage products
+- Manage fulfillment
+- Manage shipping rates
+Install app to grant.
+
+Step 3: Create account / log in (same as Wix)
+
+Step 4: Choose plan
+1. Review plans (features, shipment limits, monthly/yearly)
+2. Pick plan > Subscribe > approved via Shopify billing
+You can change/cancel anytime via Settings > Billing.
+
+Step 5: Connect first shipping company (same flow)
+
+After-install checklist:
+- Verify store address (Settings > General)
+- Default label format (Settings > Labels)
+- SMS notifications (Settings > SMS)
+- Pickup points if supported
+- Auto order syncing
+- Checkout shipping rates if Shopify plan supports
+
+Troubleshooting:
+- App won't install: need owner/admin permissions
+- Authorization screen error: clear cache, disable extensions
+- Can't create account: email registered, use Forgot Password
+- Plan subscription fails: Shopify billing/payment method
+- License validation fails: verify creds
+
+
+============================================================
+CREATING SHIPMENTS ON SHOPIFY
+============================================================
+
+Single shipment:
+1. ShipOS app > Orders > click order
+2. Create Shipment
+3. Specify: shipping company, delivery type, recipient (auto-fills)
+4. Verify > Create
+5. Tracking number generated
+
+Bulk: dedicated bulk creation page. Set default company + delivery type, select with checkboxes, process together. Returns summary with successes (with tracking) and failures.
+
+Manual (unattached): Shipments > New Manual Shipment > fill manually. For returns, internal transfers, custom deliveries.
+
+Automatic: Settings > toggle "Auto-create shipment on new order" > configure default company, delivery type, triggering status. Verify defaults before enabling.
+
+Fulfillment:
+- Shipment created → Shopify order marked fulfilled, tracking attached
+- Shipping fulfillment notification sent (Shopify settings)
+
+Statuses:
+Pending, Picked Up, In Transit, Out for Delivery, Delivered, Failed Delivery, Returned, Cancelled
+
+Common issues:
+- Shipment creation fails: check license + address
+- No tracking number: company needs a few minutes
+- Order not fulfilled: check auto-fulfill + connection
+- Auto creation not firing: order sync active in Settings
+- Duplicate shipments: turn off auto if also creating manually
+- Bulk hangs: smaller batches (20-30)
+
+
+============================================================
+PICKUP POINTS ON SHOPIFY
+============================================================
+
+Same model as Wix/WC: company-network locations + your own custom collection points.
+
+View locations:
+1. ShipOS in Shopify admin > Pickup Points
+2. Pick company from dropdown
+3. List shows: name, address, city, type, status
+
+Sync: Pickup Points > pick company > Sync Now.
+Locations from companies are read-only but you can toggle them on/off.
+
+Customer / operator nearest-point search:
+- Customer: enter address / allow location > sorted by distance
+- Operator: when creating pickup-type shipment, enter customer city > nearest options
+
+Custom collection points:
+1. Pickup Points > Independent Points > Add New Point
+2. Fill: name, address, city, phone, hours, notes (e.g. "Ring bell at gate")
+3. Save
+- Edit / toggle on-off
+Tip: great for "click and collect" from your physical store.
+
+Checkout shipping rates:
+1. Settings > Carrier Service (or Checkout Rates)
+2. Enable Checkout Rates
+3. Configure: rate name, fixed rate, free shipping threshold
+Important: requires Shopify plan with third-party rate calculation (Advanced Shopify+ or rate-calc add-on).
+Test by placing test order.
+
+Customer experience:
+- Pickup Point option at shipping step > select > map/list of nearby > pick > rate updates > checkout
+
+Troubleshooting:
+- Not at checkout: rates enabled? Shopify plan supports it? company supports?
+- No nearby: customer outside coverage; check company network
+- Custom not appearing: check Active
+- Rates not calculating: Settings > pricing
+- Sync stale: license active? manual sync?
+- Map not loading: Google Maps key
+
+
+============================================================
+SHOPIFY SETTINGS
+============================================================
+
+GENERAL (Settings > General):
+- Store Name (labels + notifications)
+- Store URL (auto)
+- Sender Address (label return)
+- Contact Email
+- Contact Phone
+
+DEFAULT SHIPPING:
+- Default company
+- Default delivery type
+- Default weight kg / dimensions cm
+- Auto-fulfill orders (mark Shopify orders fulfilled when shipments created)
+- Print products on label
+
+ORDER SYNC (Settings > Webhooks/Sync):
+Connections:
+- Order Created (sync new + optional auto-create)
+- Order Updated
+- Order Deleted
+- App Uninstalled
+Re-register: Register / Refresh button.
+Warning: removing stops order syncing + auto-creation.
+
+CHECKOUT SHIPPING RATES (Settings > Carrier Service / Checkout Rates):
+Enable, set service name, rate calculation (fixed/company-based/custom rules), free shipping threshold.
+Requirements: Shopify plan with third-party rates (Advanced+ or add-on); active license in ShipOS.
+Disable: toggle off + Save (changes take a few minutes).
+
+PERMISSIONS (granted at install):
+- Read orders (details for shipments)
+- Update orders (notes, tags)
+- Read products (label data)
+- Manage fulfillment (mark shipped + tracking)
+- Manage shipping (checkout rates)
+Verify: Shopify Admin > Apps > ShipOS > About this app.
+Reinstalling resets connection but preserves account data.
+
+SMS (Settings > SMS):
+Triggers: Shipment Created / Out for Delivery / Delivered / Pickup Ready / Failed Delivery
+Placeholders: {customer_name}, {order_number}, {tracking_number}, {tracking_url}, {store_name}, {pickup_location}, {estimated_delivery}
+
+Example:
+"Hi {customer_name}, your order #{order_number} has shipped! Track it here: {tracking_url} - {store_name}"
+
+RETURNS (Settings > Returns & Exchanges):
+- Return window (e.g. 14 days)
+- Return reasons list
+- Exchange enabled
+- Store credit option
+- Verification (one-time code)
+- Return shipping responsibility (you / customer)
+Return portal URL: https://app.shipos.co.il/returns/{store_slug}
+
+Troubleshooting:
+- Settings not saving: connection? refresh
+- Sync not registering: Shopify access, re-register
+- Checkout rates not showing: Shopify plan? rate settings?
+- SMS not sending: enabled + messages set?
+- Permission error: reinstall to re-grant
+
+
+============================================================
+PLANS AND BILLING ON SHOPIFY
+============================================================
+
+Plans comparison:
+                       Basic      Standard   Premium
+Monthly Shipments      Up to 100  Up to 500  Unlimited
+Shipping Companies     1          3          Unlimited
+Bulk Creation          Yes        Yes        Yes
+Pickup Points          Limited    Yes        Yes
+SMS                    -          Yes        Yes
+Checkout Rates         -          Yes        Yes
+Return Portal          -          -          Yes
+Priority Support       -          -          Yes
+Custom Branding        -          -          Yes
+
+Tip: most stores start on Standard.
+
+Billing:
+- Charges via Shopify billing system (on Shopify invoice)
+- Subscribe: Settings > Billing > Subscribe (Shopify shows confirmation > Approve)
+- Monthly: flexibility, no commitment
+- Yearly: ~15-20% discount, billed once
+Switch: Billing > Change Plan / Change Billing Cycle.
+
+Upgrade: Billing > Upgrade > pick higher > Approve. New features immediate.
+Downgrade: Billing > Change Plan > pick lower > Confirm. Takes effect at end of period; lose higher-tier features but no refund.
+
+Cancel:
+1. Billing > Cancel Subscription > confirm
+2. Stays active until end of period
+3. After: no more charges, lose features, data kept 90 days
+Returning: subscribe again, data restored if within 90 days.
+
+Billing history: Shopify Admin > Settings > Billing > View all charges.
+
+FAQ:
+- Charged if not used? Yes — fee charged regardless.
+- Free trial? Check the listing.
+- Refund? Per Shopify app billing policies; contact support.
+- Exceed shipment limit? Must upgrade or wait for new period.
+
+
+============================================================
+API OVERVIEW
+============================================================
+
+Base URL: https://app.shipos.co.il/api/
+
+Authentication:
+1. License-based (plugin endpoints): license_key + domain + token
+   Example:
+   curl -X POST https://app.shipos.co.il/api/shipping/open_new_order \
+     -H "Authorization: Bearer YOUR_TOKEN" \
+     -d "license_key=YOUR_LICENSE_KEY" \
+     -d "domain=yourstore.com" \
+     -d "version=3.1.1"
+
+2. Sanctum tokens (dashboard endpoints): Laravel Sanctum Bearer tokens
+   curl -X GET https://app.shipos.co.il/api/licenses \
+     -H "Authorization: Bearer YOUR_SANCTUM_TOKEN" \
+     -H "Accept: application/json"
+   Used by ShipOS dashboard, not external integrations.
+
+Request format:
+- Content-Type: application/x-www-form-urlencoded (or multipart/form-data) for POSTs
+- Common params: license_key, domain, token, version
+
+Response format (JSON):
+Success:
+  { "success": true, "data": { ... } }
+Error:
+  { "success": false, "message": "...", "errors": { ... } }
+
+HTTP status codes:
+200 success, 201 created, 400 bad request, 401 unauthorized, 403 forbidden,
+404 not found, 422 validation, 429 rate limit, 500 server error
+
+Rate limits:
+- 60 req/min per license
+- 120 req/min per IP
+- 10 req/min for bulk operations
+On 429: response includes retry_after seconds. Use exponential backoff.
+
+Versioning: pass version=3.1.1 (use latest).
+
+Best practices:
+1. Always check `success` before reading `data`
+2. Iterate `errors` object for validation feedback
+3. Retry 5xx with exponential backoff
+4. Log all errors
+5. Never expose tokens client-side or in repos
+
+
+============================================================
+SHIPMENT ENDPOINTS
+============================================================
+
+POST /shipping/open_new_order — Create a shipment
+URL: https://app.shipos.co.il/api/shipping/open_new_order
+Method: POST
+Required: license_key, domain, token, version
+Order params:
+  order_id (required)
+  shipping_first_name (required)
+  shipping_last_name (required)
+  shipping_address_1 (required)
+  shipping_address_2 (optional)
+  shipping_city (required)
+  shipping_postcode (optional)
+  shipping_phone (required)
+  shipping_email (optional)
+  shipping_company (optional)
+  total_weight (optional, kg)
+  num_of_packages (optional)
+  delivery_type (optional: standard / express / pickup)
+  pickup_point_id (conditional, when delivery_type=pickup)
+  notes (optional)
+  cod_amount (optional)
+  items (optional array)
+
+Items format:
+  items[0][name]=Product Name
+  items[0][quantity]=2
+  items[0][sku]=SKU-001
+  items[0][price]=99.90
+  items[0][is_virtual]=false
+
+Example:
+  curl -X POST https://app.shipos.co.il/api/shipping/open_new_order \
+    -H "Authorization: Bearer YOUR_TOKEN" \
+    -d "license_key=LIC-12345" \
+    -d "domain=mystore.com" \
+    -d "version=3.1.1" \
+    -d "order_id=5001" \
+    -d "shipping_first_name=David" \
+    -d "shipping_last_name=Cohen" \
+    -d "shipping_address_1=Ben Yehuda 50" \
+    -d "shipping_city=Tel Aviv" \
+    -d "shipping_postcode=6343200" \
+    -d "shipping_phone=0521234567" \
+    -d "total_weight=2.0" \
+    -d "num_of_packages=1" \
+    -d "items[0][name]=T-Shirt" \
+    -d "items[0][quantity]=1"
+
+Success (200):
+  { "success": true, "data": {
+      "order_id": "5001",
+      "shipping_code": "SHP-78901",
+      "tracking_number": "ZZ987654321",
+      "tracking_url": "https://tracking.provider.co.il/ZZ987654321",
+      "status": "created",
+      "label_url": "https://app.shipos.co.il/api/shipping/label?id=78901"
+  } }
+
+Validation error (422):
+  { "success": false, "message": "Validation failed", "errors": {
+      "shipping_city": ["The shipping city field is required."],
+      "shipping_phone": ["The shipping phone format is invalid."]
+  } }
+
+Important: is_virtual on items matters. Virtual items don't need physical shipping; if all are virtual, creation may be rejected.
+
+POST /shipping/get_order_details — Retrieve shipment/order
+Required: license_key, domain, token, order_id
+
+POST /shipping/get_shipping_status — Current status + tracking history
+Returns history array with status / timestamp / description per stage.
+
+POST /shipping/label — Single label PDF
+Optional: label_type (thermal | a4, default thermal)
+Response includes label_url + expires_at — labels are temporary.
+
+POST /shipping/bulk-label — Multiple labels in one PDF
+Required: order_ids[] array
+
+POST /shipping/order — All shipments for an order (a single order may have multiple shipments)
+
+POST /shipping/change_order_status — Change shipment status (e.g. cancel)
+Required: license_key, domain, token, order_id, status
+Warning: not all transitions allowed (can't cancel a delivered shipment).
+
+Status values: created, picked_up, in_transit, out_for_delivery, delivered, failed_delivery, returned, cancelled
+
+
+============================================================
+PICKUP LOCATION ENDPOINTS
+============================================================
+
+POST /shipping/pickup_locations
+Required: license_key, domain, token
+
+Example:
+  curl -X POST https://app.shipos.co.il/api/shipping/pickup_locations \
+    -H "Authorization: Bearer YOUR_TOKEN" \
+    -d "license_key=LIC-12345" \
+    -d "domain=mystore.com"
+
+Response (200):
+  { "success": true, "data": {
+      "locations": [
+        {
+          "id": "PU-001",
+          "name": "Dizengoff Post Office",
+          "address": "Dizengoff 100",
+          "city": "Tel Aviv",
+          "postcode": "6433201",
+          "phone": "03-1234567",
+          "type": "post_office",
+          "latitude": 32.0778,
+          "longitude": 34.7744,
+          "operating_hours": {
+            "sunday": "08:00-18:00",
+            ...
+            "friday": "08:00-13:00",
+            "saturday": "closed"
+          },
+          "is_active": true
+        }
+      ],
+      "total": 1,
+      "provider": "zigzag"
+  } }
+
+Location types: store, locker, post_office, collection_point
+
+Filter client-side:
+By city:
+  const telAviv = response.data.locations.filter(l => l.city === "Tel Aviv");
+By type:
+  const lockers = response.data.locations.filter(l => l.type === "locker");
+By proximity (haversine):
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2-lat1)*Math.PI/180, dLon = (lon2-lon1)*Math.PI/180;
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180) *
+              Math.sin(dLon/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+Caching: pickup locations don't change often — cache 24h, refresh daily or on manual sync.
+
+Checkout integration:
+1. Page load: fetch locations per active license (or use cache)
+2. Customer picks pickup delivery: show map/list
+3. On selection: store the location's id
+4. On order create: pass pickup_point_id in shipment create:
+   curl -X POST .../api/shipping/open_new_order \
+     -d "delivery_type=pickup" \
+     -d "pickup_point_id=PU-002" \
+     ...
+
+
+============================================================
+LICENSE ENDPOINTS
+============================================================
+
+GET /license/check_license — Validate a license
+Query params: license_key, domain
+Example:
+  curl -X GET "https://app.shipos.co.il/api/license/check_license?license_key=LIC-12345&domain=mystore.com"
+Response includes is_active, company info, expires_at, features.
+Tip: call on plugin activation or periodic health check.
+
+GET /license/activate_license — Activate + bind to domain
+Query: license_key, domain
+Warning: a license can only be bound to one domain at a time. To transfer: deactivate first, then activate on new domain.
+
+POST /licenses — List all licenses for the authenticated user (Sanctum auth)
+Headers: Authorization: Bearer YOUR_SANCTUM_TOKEN, Accept: application/json
+Used by dashboard / admin interfaces, not store plugins.
+
+License lifecycle:
+  Inactive --activate--> Active --(expires_at reached or deactivate)--> Inactive
+
+States: Active / Inactive / Expired
+
+Common patterns:
+- Validate on plugin activation (check, then activate if needed)
+- Periodic health check via cron (notify admin if expired)
+
+
+============================================================
+WEBHOOKS
+============================================================
+
+Webhooks are HTTP callbacks notifying ShipOS when events happen in your WooCommerce store. The integration auto-syncs orders via three events:
+- order_created
+- order_updated
+- order_deleted
+
+URL pattern: https://app.shipos.co.il/api/wp/webhooks/{wp_site_id}/{event}
+The wp_site_id distinguishes between different WC stores.
+
+is_virtual field: the plugin filters line items to add this flag. Determines whether physical shipping is needed; if all items are virtual, no physical shipment is created. Verify the WC plugin remains active for this filter to work.
+
+Payload follows the WooCommerce REST API Order schema with full order details (customer, items, shipping data, metadata). Delete events have minimal payload (just order ID).
+
+Retry logic (WC built-in): up to 5 attempts with delays 1m, 5m, 30m, 1h, 6h. After 5 failures, webhooks are disabled and need manual re-enable.
+
+Security: HMAC-SHA256 signatures in X-WC-Webhook-Signature header. Verify payload authenticity using the shared webhook secret.
+
+
+============================================================
+SHIPPING COMPANY SETUP GUIDES (INDEX)
+============================================================
+
+Most popular: As Deliveries, Done, HFD, YDM, Zig Zag, SNL Logistics, Tamnon Deliveries, Cactus, Orian, Shalem Deliveries, Chita Deliveries.
+
+Premium: Wolt Drive (same-hour), GetPackage (same-day).
+
+Additional: LionWheel, Ship UPS (international), Tapuz, Cargo.
+
+General guides:
+- Baldar-based companies (30+ providers)
+- Run Software-based companies
+- Self-pickup
+
+Quick credential reference:
+- Baldar companies (As, SNL, Tamnon, Shalem etc.): connection code only
+- Run Software companies + HFD: connection code + auth token
+- Most: connection code
+- LionWheel: API key + secret
+- Orian: username/password
+- Wolt Drive: Merchant ID + Venue ID (no connection code)
+
+
+============================================================
+HFD - SETUP GUIDE
+============================================================
+
+HFD: major Israeli delivery company. Newer/faster API integration.
+
+Need:
+- Connection code (HFD provides)
+- Authentication token (HFD provides) — REQUIRED
+- Collection address
+
+Important: BOTH connection code AND auth token required. Either missing → connection fails.
+
+Get credentials: contact HFD, mention you're using ShipOS, request connection code + auth token.
+
+Connect:
+1. WordPress admin > ShipOS > Settings > Licenses
+2. Connect a new delivery company > pick "HFD"
+3. Enter connection code + auth token
+4. Enter collection address
+5. Friendly name (e.g. "My HFD account")
+6. Save
+
+Features:
+Regular Delivery: yes
+Double Delivery: yes
+Pickup Points: yes
+COD (Govaina): yes
+Express/Same-Day: no
+Label Printing: yes
+
+Troubleshooting:
+- "Invalid connection code" / "Authentication failed": check both code and token
+- "Token expired": ask HFD for new token, update in ShipOS
+- Connection stuck: refresh + reconnect, contact support if persists
+
+
+============================================================
+TAPUZ - SETUP GUIDE
+============================================================
+
+Tapuz: Israeli delivery, newer API requiring code + key.
+
+Need:
+- Connection code (Tapuz provides)
+- API Key (Tapuz provides) — REQUIRED
+- Collection address
+
+Important: BOTH required.
+
+Connect: same flow as HFD, pick "Tapuz", enter connection code + API key + collection address.
+
+Features:
+Regular Delivery: yes
+Double Delivery: no
+Pickup Points: no
+COD: no
+Express: no
+Label Printing: yes
+
+
+============================================================
+AS DELIVERIES (אס שליחויות) - SETUP GUIDE
+============================================================
+
+As Deliveries: one of Israel's largest couriers. Most popular ShipOS company.
+
+Need:
+- Connection code (As Deliveries provides)
+- Collection address
+
+Connect:
+1. WP admin > ShipOS > Settings > Licenses
+2. Connect new > pick "אס שליחויות"
+3. Enter connection code + collection address + friendly name
+4. Save
+
+Features:
+Regular: yes / Double: yes / Pickup Points: yes / COD: yes / Express: no / Label Printing: yes
+
+Tips:
+- Pickup address must be accurate
+- Multiple warehouses → separate connections
+- Pickup points can be offered at checkout via shipping zone settings
+
+Troubleshooting:
+- "Invalid connection code": no extra spaces, verify with As Deliveries
+- Connection stuck: refresh + reconnect
+- Pickup points not at checkout: enable in WC shipping zones
+
+
+============================================================
+SHALEM DELIVERIES (שלם משלוחים) - SETUP GUIDE
+============================================================
+
+Shalem Deliveries: Israeli courier with standard + double delivery, pickup points, COD.
+
+Need:
+- Connection code (Shalem provides)
+- Collection address
+
+Connect:
+1. WP admin > ShipOS > Settings > Licenses
+2. Connect new > pick "שלם משלוחים"
+3. Enter code + collection address + friendly name
+4. Save
+
+Features:
+Regular: yes / Double: yes / Pickup Points: yes / COD: yes / Express: no / Label Printing: yes
+
+
+############################################################
+# PART 2: HEBREW / חלק שני: עברית
+############################################################
+
+
+============================================================
+מה זה ShipOS?
+============================================================
+
+סקירה כללית
+
+ShipOS היא פלטפורמת ניהול משלוחים שנבנתה במיוחד עבור חנויות אונליין בישראל. היא מאפשרת לך לנהל את כל תהליך המשלוח ממקום אחד -- מיצירת משלוח ועד למסירתו בדלת הלקוח.
+
+למי מיועד ShipOS?
+
+ShipOS מיועד לכל בעל חנות אונליין בישראל, בין אם אתה שולח כמה חבילות ביום ובין אם מאות.
+
+פלטפורמות נתמכות:
+- WooCommerce -- תוסף ייעודי לחנויות WordPress עם אינטגרציה מלאה
+- Wix -- אפליקציה לחנויות אונליין של Wix
+- Shopify -- אפליקציה לחנויות אונליין של Shopify
+- חיבור ישיר -- חיבור פתוח לכל מערכת מותאמת אישית
+
+מה ShipOS יכול לעשות?
+
+יצירת משלוחים:
+- יצירת משלוח בלחיצה אחת ישירות מהזמנה
+- יצירת משלוחים בכמויות
+- יצירת משלוח ידני ללא הזמנה קיימת
+- משלוח אוטומטי
+
+הדפסת מדבקות:
+- מדבקה בודדת או למספר הזמנות בבת אחת
+- מדפסות תרמיות ו-A4
+- אפשרות להדפיס פרטי מוצרים על המדבקה
+- חיבור ל-PrintNode להדפסה מרחוק
+
+מעקב משלוחים:
+- מעקב בזמן אמת
+- דף מעקב ייעודי ללקוחות
+- עדכוני סטטוס הזמנה אוטומטיים
+
+נקודות איסוף:
+- הצגת נקודות איסוף בקופה
+- תמיכה ברשימה / מפה / שניהם
+- סנכרון אוטומטי
+
+החזרות והחלפות:
+- פורטל החזרות ללקוחות
+- מדיניות מותאמת
+- ניהול מרכזי של בקשות
+
+חברות משלוחים: ShipOS מתחבר ל-15 חברות משלוחים ישראליות (Chita, HFD, Orian, Cargo, LionWheel, GetPackage, Wolt Drive ועוד).
+
+איך מתחילים:
+1. התקנת התוסף/אפליקציה
+2. יצירת חשבון ShipOS
+3. חיבור חברת משלוחים
+4. הגדרת העדפות באשף
+5. התחל לשלוח
+
+תמיכה:
+- אתר: shipos.co.il
+- אפליקציה: app.shipos.co.il
+- מייל: support@shipos.co.il
+
+
+============================================================
+חברות משלוחים נתמכות
+============================================================
+
+ShipOS מתחבר ליותר מ-60 חברות משלוחים דרך 14 ספקי שילוח שונים בישראל.
+
+1. בלדר (Baldar)
+שירות: שליחויות ארציות. 30+ חברות (רימון שליחויות, נגב איקומרס, תמנון שליחויות, רצ פלוס, L.a delivery, שיר שליחויות, פלאש שליחויות, טייגר, פיקס שליחויות, גל שליחויות, שחף שליחויות, קיווי משלוחים, אליהו המהיר, שיגור ישיר, אמגון, עולם המשלוחים ועוד).
+דרישות: קוד חיבור.
+
+2. Run Software (צ'יטה)
+שירות: שליחויות ארציות. 8 חברות (צ'יטה שליחויות, YDM, פוקוס משלוחים, ק אקספרס, כץ משלוחים, Speed Way Delivery, מסוף).
+דרישות: קוד חיבור + טוקן API. הטוקן חובה.
+
+3. Done
+שירות: שליחויות עם נקודות איסוף. 3 חברות (Done, Kumi, Negev Done).
+דרישות: קוד חיבור.
+
+4. איסוף עצמי
+שירות: איסוף על ידי הלקוח מהחנות. דרישות: ללא. דורש שיטת משלוח תואמת בחנות לזיהוי.
+
+5. Cargo
+שירות: משלוחים ולוגיסטיקה עם נקודות איסוף.
+דרישות: קוד חיבור.
+
+6. LionWheel
+שירות: שליחויות. 2+ חברות (LionWheel, מירון שליחויות).
+דרישות: קוד חיבור + מפתח API + סוד API.
+
+7. Orian
+שירות: שליחויות ומחסנאות. 2 חברות.
+דרישות: קוד חיבור + שם משתמש + סיסמה.
+
+8. GetPackage (פרימיום)
+שירות: משלוח באותו יום. דרישות: קוד חיבור. דורש הפעלה נפרדת.
+
+9. מדבקת ShipOS (עצמאי)
+שירות: משלוח בניהול עצמי, מדבקות ממותגות ShipOS ללא חברה חיצונית.
+דרישות: ללא.
+
+10. Wolt Drive
+שירות: משלוח מהיר. דרישות: Merchant ID + Venue ID. דורש חשבון סוחר Wolt Drive פעיל.
+
+11. Zig Zag
+שירות: שליחויות. דרישות: קוד חיבור.
+
+12. Ship UPS
+שירות: משלוחים בינלאומיים (UPS).
+דרישות: קוד חיבור.
+
+13. HFD (חדש)
+שירות: שליחויות. 2 חברות (HFD, מסוף).
+דרישות: קוד חיבור + טוקן API. הטוקן חובה.
+
+14. תפוז (Tapuz)
+שירות: שליחויות.
+דרישות: קוד חיבור + מפתח API.
+
+איך מחברים חברת משלוחים?
+1. פתח את לוח הבקרה של ShipOS
+2. עבור לאשף ההגדרות או לדף הרישיונות
+3. בחר חברת משלוחים
+4. הזן את פרטי ההתחברות
+5. הזן כתובת איסוף
+6. שמור ובדוק חיבור
+
+
+============================================================
+שאלות נפוצות
+============================================================
+
+כמה עולה ShipOS?
+מודל מנוי, תוכניות שונות לפי נפח. בקרו ב-shipos.co.il או צרו קשר עם המכירות.
+
+איך מחברים חברת משלוחים?
+1. פתח את לוח הבקרה של ShipOS
+2. לחץ רישיונות או אשף ההגדרות
+3. בחר חברה
+4. הזן: קוד לקוח, שם משתמש, סיסמה
+5. הזן כתובת איסוף
+6. שמור וודא חיבור
+
+מה לעשות אם יצירת משלוח נכשלת?
+1. פרטי התחברות נכונים?
+2. כתובת מלאה (עיר, רחוב, מספר בית)
+3. מספר טלפון תקין בפורמט ישראלי
+4. רישיון פעיל
+5. אין בעיית חיבור עם שרת ShipOS
+
+איך מדפיסים מדבקה?
+מדבקה בודדת:
+1. פתח הזמנה
+2. בתיבת ShipOS לחץ הדפסת מדבקה
+3. PDF יורד
+
+הדפסה מרובה:
+1. ברשימת ההזמנות בחר הזמנות
+2. בחר הדפסת מדבקות מהפעולות המרובות
+3. PDF אחד עם כל המדבקות
+
+אפשר לבחור בין מדבקות תרמיות ו-A4 בהגדרות.
+
+מה זה נקודות איסוף?
+מיקומים פיזיים שבהם הלקוח אוסף את החבילה במקום משלוח עד הבית: מכולות, סניפי דואר, לוקרים.
+
+איך זה עובד?
+1. לקוח מבצע הזמנה
+2. בקופה בוחר נקודת איסוף
+3. החבילה מגיעה לנקודה
+4. הלקוח מקבל הודעה
+5. אוסף
+
+איך מפעילים?
+1. ודא שחברת המשלוחים תומכת
+2. הגדרות ShipOS > הגדרות נקודות איסוף
+3. הפעל
+4. סנכרן
+5. צור שיטת משלוח "ShipOS Shipping" באזורי המשלוח
+
+איך מגדירים משלוח אוטומטי?
+1. לוח הבקרה > הגדרות > משלוחים
+2. הפעל משלוח אוטומטי
+3. בחר: חברה ברירת מחדל, סטטוס מפעיל, סוג משלוח, מספר חבילות
+חשוב: ייווצר משלוח לכל הזמנה שמגיעה לסטטוס. ודא שהכל נכון.
+
+מה לעשות אם יש שגיאת חיבור?
+1. בדוק חיבור אינטרנט
+2. רענן דף
+3. נקה מטמון
+חומת אש/Cloudflare: אפשר את כתובות שרת ShipOS:
+  IPv4: 5.75.225.51
+  IPv6: 2a01:4f8:c012:c6d4::1
+WooCommerce: WC > הגדרות > מתקדם > בדוק מפתחות חיבור ShipOS, לחץ אישור מחדש אם חסרים.
+
+האם ShipOS עובד עם חנויות בעברית?
+כן. תוכנן במיוחד לשוק הישראלי: ממשק עברית מלא, RTL, כתובות בעברית, מספרי טלפון ישראליים.
+
+האם אפשר לחבר יותר מחברת משלוחים אחת?
+כן. כל חיבור מנוהל כרישיון נפרד. אפשר ברירת מחדל או לבחור פר-הזמנה.
+
+האם ShipOS תומך במשלוחים בינלאומיים?
+כן דרך ShipUPS. שאר החברות הן ישראליות.
+
+האם אפשר חברות שונות למוצרים שונים?
+כן. הגדר שיטות משלוח שונות באזורי משלוח של WooCommerce.
+דוגמה:
+- תל אביב: Wolt Drive (משלוח באותו יום)
+- שאר ישראל: Zig Zag (משלוח רגיל)
+- בינלאומי: ShipUPS
+
+האם צריך מפתח Google Maps?
+רק לתצוגת מפה של נקודות איסוף בקופה. תצוגת רשימה לא דורשת מפתח.
+
+האם אפשר להתאים את דף המעקב?
+כן: לוגו, צבעי מותג, פרטי קשר, עיצובי דף.
+
+יש אפליקציה לנייד?
+לא לבעלי חנויות. לוח הבקרה עובד בכל דפדפן. דף מעקב הלקוח מותאם נייד.
+
+אילו מדפסות מדבקות נתמכות?
+- תרמיות (Zebra, DYMO, TSC) -- בחרו פורמט "תרמי"
+- A4 רגילות -- בחרו פורמט "A4"
+
+
+============================================================
+פתרון בעיות
+============================================================
+
+"לא ניתן להתחבר לשרת ShipOS"
+1. חומת אש: אפשרו IPv4 5.75.225.51 ו-IPv6 2a01:4f8:c012:c6d4::1
+2. Cloudflare: Security > WAF > הוסיפו חריגה ל-ShipOS
+3. ודאו שתעודת HTTPS תקפה
+4. ספק אחסון: בקשו לאפשר חיבורים יוצאים ל-api.shipos.co.il
+
+"Consumer secret is invalid"
+1. WordPress admin > WooCommerce > הגדרות > מתקדם > מפתחות ShipOS
+2. אם חסרים/פגו: ShipOS > אישור מחדש
+3. אם לא עוזר: מחקו מפתחות ShipOS ועברו על תהליך ההרשאה מחדש
+חשוב: רק מפתחות ShipOS, לא של שירותים אחרים.
+
+"שגיאה ביצירת משלוח"
+1. פרטי התחברות נכונים? (נסו להתחבר למערכת חברת המשלוחים)
+2. כתובת מלאה (עיר, רחוב, מספר), בלי תווים חריגים
+3. טלפון: 10 ספרות, מתחיל ב-05 (נייד)
+4. כתובת איסוף ברישיון מוגדרת נכון
+5. סוג המשלוח תואם
+
+"נדרש מפתח Google Maps"
+1. Google Cloud Console > פרויקט חדש
+2. הפעילו Maps JavaScript + Places
+3. צרו מפתח, הגבילו לדומיין
+4. הדביקו ב-ShipOS > הגדרות נקודות איסוף
+טיפ: בחרו "רשימה" כדי לוותר על מפתח.
+
+תעודת אבטחה: בדקו ב-SSL Labs, פנו לספק האחסון.
+
+התנגשויות עם תוספים (WooCommerce):
+1. השביתו את כל התוספים חוץ מ-WC + ShipOS
+2. הפעילו אחד-אחד למצוא את ההתנגשות
+תוספים בעייתיים: מטמון, אבטחה (Wordfence, iThemes), משלוחים אחרים, התאמת קופה.
+3. נסו ערכת נושא ברירת מחדל (Twenty Twenty-Four).
+
+Cloudflare חוסם ShipOS:
+Security > WAF > Custom rules > כלל חדש "Allow ShipOS" עם IP 5.75.225.51, ועוד אחד ל-IPv6.
+שימו לב ל-Super Bot Fight Mode.
+
+הזמנות לא מסתנכרנות:
+1. WC > הגדרות > מתקדם > Webhooks: ודאו שההתראות פעילות
+2. ShipOS > סנכרון הזמנות (ידני)
+3. ודאו הרשאות
+
+מדבקה לא מודפסת נכון:
+1. הגדרות > סוג מדבקה (תרמית או A4)
+2. בדקו סיבוב, התאם לעמוד, גודל נייר
+3. תרמית: רוחב גליל בדרך כלל 10 ס"מ
+
+תוסף לא מותקן:
+- WP 5.0+, WC 5.0+, PHP 7.4+
+- wp-content/plugins צריך הרשאות 755
+- התקנה ידנית: חלצו ZIP לתיקייה והפעילו
+
+יצירת קשר עם תמיכה:
+מייל: support@shipos.co.il
+צ'אט: דרך לוח הבקרה של ShipOS באתר
+
+
+============================================================
+רשימת משימות להתחלה
+============================================================
+
+1. חבר חברת משלוחים -- ShipOS > הגדרות > רישיונות > הוסף רישיון חדש
+2. הגדר כתובת איסוף -- ברישיון: רחוב + מספר + עיר
+3. הפעל נקודות איסוף (אופציונלי) -- הגדרות > הגדרות נקודות איסוף, סנכרן, הוסף שיטת ShipOS Shipping לאזורי משלוח
+4. הגדר משלוח אוטומטי (אופציונלי) -- הגדרות > משלוחים > הפעל, בחר סטטוס + חברה
+5. בחר פורמט מדבקה -- הגדרות > מדבקות > תרמית או A4
+6. צור משלוח ראשון -- בהזמנה, ShipOS > צור משלוח > בחר חברה + סוג > צור
+7. הדפס מדבקה ראשונה -- ShipOS > הדפסת מדבקה > PDF
+
+
+============================================================
+התקנת תוסף ShipOS (WooCommerce)
+============================================================
+
+דרישות:
+- WordPress 5.0+
+- WooCommerce מותקן ופעיל
+- PHP 7.4+
+- HTTPS
+
+התקנה מ-WordPress:
+1. ניהול WP > תוספים > הוסף חדש
+2. חפש "Shipos" / "Deliver via Shipos"
+3. "Deliver via Shipos for WooCommerce" > התקן עכשיו > הפעל (מעביר אוטומטית ללוח הבקרה)
+
+התקנה מ-ZIP:
+1. תוספים > הוסף חדש > העלה תוסף
+2. בחר ZIP > התקן > הפעל
+
+התקנה דרך FTP (מתקדמים):
+1. חלצו ZIP
+2. העלו את wc-shipos-delivery ל-wp-content/plugins/
+3. תוספים > הפעל
+
+אחרי הפעלה: הפניה ללוח הבקרה > הרשמה/התחברות > אישור הרשאות > אשף הגדרות.
+
+גישה ללוח הבקרה: סרגל הצד "Deliver via Shipos" או WC > הגדרות > Shipos Delivery.
+
+עדכון: הודעה בדף תוספים > עדכן עכשיו (גבו לפני).
+
+הסרה: תוספים > השבת > מחק. הסרה מוחקת רק הגדרות מקומיות; נתונים בשרת ShipOS נשמרים.
+
+
+============================================================
+אשף ההגדרות (WooCommerce)
+============================================================
+
+האשף מלווה ב-5 שלבים אחרי חיבור החנות.
+
+שלב 1: חיבור חברת משלוחים
+- בחר מהרשימה הנפתחת
+- הזן: קוד לקוח, שם משתמש, סיסמה
+- כתובת איסוף: עיר, רחוב, מספר, מיקוד, איש קשר, טלפון
+
+שלב 2: נקודות איסוף
+- הפעל אם רוצים לאפשר ללקוחות לאסוף
+- סנכרון אוטומטי מהחברה
+- הגדר מחירים: רגיל / מוזל / סף הנחה
+- בחר תצוגה: רשימה / מפה / שניהם
+- מפה דורשת מפתח Google Maps
+
+שלב 3: הגדרות משלוח
+- הפעל יצירת משלוח אוטומטית?
+- בחר סטטוס מפעיל (בעיבוד או מותאם)
+- סוג מדבקה: תרמית או A4
+- הדפסת מוצרים על מדבקה
+- סנכרון הזמנות קיימות
+
+שלב 4: איסוף עצמי
+- הפעל איסוף מהמיקום שלך
+- בחר שיטת משלוח תואמת (Local Pickup)
+
+שלב 5: סיום
+- סיכום ההגדרות
+- אפשר ליצור משלוח ראשון, לבדוק קופה, לכוונן הגדרות, להוסיף עוד חברות
+
+חזרה לאשף: לוח הבקרה > הגדרות (אפשר לעדכן הכל משם).
+
+
+============================================================
+יצירת משלוחים (WooCommerce)
+============================================================
+
+משלוח בודד מהזמנה:
+1. ניהול WP > WooCommerce > הזמנות
+2. לחץ על ההזמנה
+3. תיבת ShipOS בצד
+4. הגדר:
+   - חברת משלוחים (אם יש רק אחת -- אוטומטי)
+   - סוג משלוח: רגיל (חד-כיווני) / דו-כיווני (משלוח + איסוף, למשל מזומן)
+   - מספר חבילות (ברירת מחדל 1)
+   - הערות לשליח (אופציונלי)
+5. צור משלוח
+6. מספר מעקב יוצג
+
+משלוחים בכמויות:
+1. WooCommerce > הזמנות
+2. סמן הזמנות
+3. פעולות מרובות: "צור משלוחים - ShipOS" > החל
+4. משתמש בברירות מחדל
+חשוב: כל ההזמנות חייבות כתובת מלאה + טלפון תקין, אחרת הן נכשלות פר-הזמנה.
+
+משלוח ידני:
+1. לוח הבקרה > משלוח ידני / צור משלוח חדש
+2. מלא: שם, טלפון, כתובת, חברה, סוג, חבילות, הערות
+3. צור משלוח
+משלוחים ידניים לא מקושרים ל-WC, רק בלוח הבקרה.
+
+משלוח אוטומטי:
+1. לוח הבקרה > הגדרות > משלוחים
+2. הפעל אוטומטי
+3. הגדר: חברה, סטטוס מפעיל (למשל "בעיבוד"), סוג, חבילות
+מתי כן: כל ההזמנות באותה חברה/סוג, חיסכון בזמן.
+מתי לא: חברות/סוגים מעורבים, מספרי חבילות משתנים.
+
+סוגי משלוח:
+- רגיל: חד-כיווני
+- דו-כיווני: השליח מוסר ואוסף משהו (מזומן/מסמכים/החזרה). לא כל החברות תומכות.
+
+שגיאות נפוצות:
+"כתובת לא תקינה" -- חסר עיר/רחוב/מספר, שגיאות כתיב
+"מספר טלפון לא תקין" -- 10 ספרות, מתחיל 05 או קידומת תקינה
+"רישיון לא פעיל" -- בדוק תפוגה, סנכרן רישיונות
+"שגיאת שרת" -- נסה שוב, בדוק חיבור, פנה לתמיכה
+
+
+============================================================
+הדפסת מדבקות (WooCommerce)
+============================================================
+
+מדבקה בודדת מדף הזמנה:
+1. WC > הזמנות > לחץ הזמנה
+2. תיבת ShipOS (חייב משלוח פעיל)
+3. הדפסת מדבקה > PDF
+
+מדבקה בודדת מלוח הבקרה:
+1. ShipOS > הזמנות / משלוחים
+2. סמל המדבקה > PDF
+
+מדבקות מרובות (רשימת WC):
+1. WC > הזמנות > סמן
+2. פעולות מרובות: "הדפסת מדבקות - ShipOS"
+3. PDF אחד יורד
+
+מדבקות מרובות (לוח הבקרה):
+1. ShipOS > הזמנות > סמן > הדפסת מדבקות
+כל מדבקה בעמוד נפרד.
+
+סוגי מדבקות:
+- תרמית: מדפסות מדבקות תרמיות, ללא חיתוך
+- A4: מדפסת רגילה, דף שלם, חיתוך אחרי
+
+הגדרות (לוח הבקרה > הגדרות):
+- סיבוב: 0 / 90 / 180
+- התאם לעמוד: כן/לא
+- הדפסת מוצרים: שם / מק"ט / וריאציות
+
+PrintNode (הדפסה מרחוק):
+1. חשבון ב-PrintNode
+2. לקוח PrintNode על המחשב של המדפסת
+3. ShipOS > הגדרות > מדבקות > קוד חיבור PrintNode
+4. בחר מדפסת
+5. שמור
+"הדפסת מדבקה" שולחת ישירות -- ללא PDF.
+
+בעיות נפוצות:
+- ריקה: משלוח לא נוצר / חברה לא תומכת
+- חתוכה: סיבוב, התאם לעמוד, גודל נייר
+- ברקוד לא נסרק: איכות הדפסה, רזולוציה, מצב המדבקה
+- לא יורד: חוסם פופ-אפים, דפדפן אחר
+
+
+============================================================
+נקודות איסוף (WooCommerce)
+============================================================
+
+מה זה?
+מיקומים פיזיים -- מכולות, סניפי דואר, לוקרים, מרכזי איסוף.
+
+יתרונות:
+- זול יותר ממשלוח לבית
+- גמיש ללקוח
+- פחות משלוחים כושלים
+- ידידותי לסביבה
+
+הפעלה:
+1. ניהול WP > WC > הגדרות > Shipos Delivery > הגדרות איסוף
+2. סמן הפעל נקודות איסוף
+3. שמור
+דרישה: חברת משלוחים תומכת.
+
+סנכרון:
+- אוטומטי בהפעלה ראשונה
+- ידני: כפתור רענון
+טיפ: סנכרנו מדי פעם.
+
+יצירת שיטת ShipOS Shipping:
+1. WC > הגדרות > משלוחים
+2. בחרו אזור (למשל ישראל)
+3. הוסף שיטת משלוח > "ShipOS Shipping"
+4. ערוך: שם (כפי שהלקוח רואה, למשל "איסוף מנקודה קרובה"), הפעל
+
+מחירים:
+- מחיר רגיל: ברירת מחדל
+- מחיר מוזל: מתחת לסכום מסוים
+- סכום מינימום להנחה
+דוגמה: רגיל 25, מוזל 15, מינימום 200 ש"ח.
+משלוח חינם: מחיר 0.
+
+תצוגה:
+- רשימה (מומלץ): לקוח בוחר עיר ואז מיקום. מהיר, ללא מפתח.
+- מפה: Google Maps עם סיכות. ויזואלי, דורש מפתח, לאט יותר.
+- שניהם: שילוב, אפשר להגדיר תצוגת ברירת מחדל.
+
+מפתח Google Maps (רק מפה/שניהם):
+1. Google Cloud Console > פרויקט
+2. APIs & Services > Library > הפעילו Maps JavaScript + Places
+3. APIs & Services > Credentials > מפתח חדש
+4. הדביקו ב-ShipOS pickup
+5. הגבילו: HTTP referrers > your-store.com/* + Maps JS + Places
+
+חוויית הלקוח:
+1. ממלא פרטים
+2. אפשרות נקודת איסוף בשיטות משלוח
+3. בוחר: רשימה / מפה
+4. בוחר נקודה
+5. כתובת מופיעה באישור
+
+פתרון בעיות:
+- לא מופיע בקופה: הפעלת? סנכרנת? יש שיטת ShipOS Shipping פעילה באזור?
+- מפה לא נטענת: מפתח? שירותים? Console (F12); הגבלות.
+- "נדרש מפתח Google Maps": עברו לרשימה או הזינו מפתח
+
+
+============================================================
+מדריך הגדרות מלא (WooCommerce)
+============================================================
+
+ההגדרות מפוצלות לשני מקומות:
+1. WooCommerce > הגדרות > Shipos Delivery
+2. לוח הבקרה של ShipOS (iframe)
+
+WooCommerce > הגדרות > Shipos Delivery:
+
+לשונית כללי:
+- חברת משלוחים ברירת מחדל (לחצו סנכרון רישיון לעדכון רשימה)
+- חישוב משלוח חינם: אחרי הנחה / לפני הנחה
+  דוגמה: סף 200, הזמנה 250 עם קופון 60 -- אחרי הנחה (190): לא זכאי, לפני הנחה (250): זכאי
+- עדכון סטטוס הזמנה אוטומטי: כשהמשלוח נמסר
+- סטטוס מקור (ברירת מחדל: בעיבוד)
+- סטטוס יעד (ברירת מחדל: הושלם)
+- עדכון לפי שיטת משלוח (למשל איסוף עצמי -> "מוכן לאיסוף")
+- מצב בדיקה (למפתחים בלבד -- אל תפעילו בחנות פעילה!)
+
+לשונית הגדרות איסוף:
+- הפעל נקודות איסוף
+- סנכרון מיקומים
+- העדפת תצוגה: רשימה / מפה / שניהם
+- מפתח Google Maps (אם מפה/שניהם)
+- תצוגת ברירת מחדל (אם "שניהם")
+
+לשוניות אינטגרציה: GetPackage, Wolt Drive, Zig Zag (כל אחת: הפעל + בחר חברה).
+
+לוח הבקרה של ShipOS:
+
+הגדרות משלוח:
+- משלוח אוטומטי: חברה, סטטוס מפעיל, סוג, מספר חבילות
+- סנכרון הזמנות: אילו סטטוסים לכלול
+
+הגדרות מדבקה:
+- סוג: תרמית / A4
+- הדפסת מוצרים, מק"ט, וריאציות
+- סיבוב: 0 / 90 / 180
+- התאם לעמוד
+
+שדות מותאמים:
+- שדה טלפון, דירה, קומה, כניסה (אם תוסף קופה מוסיף שדות)
+
+איסוף עצמי:
+- הפעל
+- שיטת משלוח לזיהוי
+
+טיפים:
+1. תמיד שמרו אחרי שינוי
+2. סנכרנו רישיונות אחרי הוספת חברה ב-ShipOS
+3. בדקו בקופה אחרי שינוי נקודות איסוף
+4. התחילו עם ברירות המחדל ושפרו לפי הצורך
+
+
+============================================================
+ניהול הזמנות (WooCommerce)
+============================================================
+
+איך הזמנות מסתנכרנות:
+ShipOS מקבל אוטומטית הזמנות חדשות, עדכונים, ביטולים, מחיקות.
+
+סנכרון ידני:
+1. לוח הבקרה > סנכרון הזמנות
+טיפ: שימושי בחיבור חנות עם הזמנות קיימות.
+
+אם סנכרון אוטומטי מפסיק:
+1. WC > הגדרות > מתקדם > Webhooks
+2. ודאו ש-ShipOS פעיל (Active). הפעילו אם Disabled
+3. ודאו שאין חסימה של חומת אש / Cloudflare
+
+צפייה בהזמנות:
+לוח הבקרה > הזמנות. מציג: מספר הזמנה, תאריך, לקוח, טלפון, כתובת, סכום, סטטוס הזמנה, סטטוס משלוח, חברת משלוחים.
+
+חיפוש: מספר הזמנה, שם, טלפון, מספר מעקב.
+סינון: טווח תאריכים, סטטוס הזמנה/משלוח, חברה.
+
+ייצוא ל-CSV: סננו ולחצו ייצוא. כולל את כל מידע ההזמנה. שימושי לדוחות וניתוח.
+
+עדכון פרטים:
+- טלפון: לחצו ועדכנו
+- כתובת: לחצו ועדכנו
+חשוב: עדכון לא משפיע על משלוח שכבר נוצר. אם צריך, בטלו וצרו חדש.
+
+הערות:
+- פנימיות (רק הצוות)
+- לשליח (מועברות בעת יצירת משלוח)
+
+פעולות:
+- צור משלוח / הדפס מדבקה / צפה / עקוב
+- מרובות: צור משלוחים, הדפס מדבקות, ייצוא
+
+
+============================================================
+החזרות והחלפות (WooCommerce)
+============================================================
+
+מה זה?
+פורטל ייעודי שבו לקוחות מבקשים החזרות/החלפות בעצמם.
+
+יתרונות:
+- חוסך זמן לשירות לקוחות
+- חוויית לקוח מובנית
+- שקיפות
+- ניהול מרכזי
+
+הגדרת מדיניות:
+לוח הבקרה > הגדרות > החזרות והחלפות.
+- חלון החזרה (ימים לאחר מסירה, למשל 14)
+- סיבות (פגום, מידה לא מתאימה, לא מרוצה, הזמנה בטעות)
+- סוגי בקשות: החזרה / החלפה
+- אילו מוצרים זכאים (אפשר להחריג קטגוריות)
+
+תהליך הלקוח:
+1. כניסה לפורטל (קישור מאתר/אימייל) -- מספר הזמנה + אימייל
+2. אימות: קוד חד-פעמי לטלפון/אימייל
+3. בחירת פריטים: מה להחזיר/להחליף, כמות, סיבה, הערה
+4. שליחה -- אישור מתקבל
+
+ניהול בקשות:
+לוח הבקרה > החזרות והחלפות. מציג: מספר בקשה, מספר הזמנה, לקוח, פריטים, סיבה, סטטוס, תאריך.
+
+טיפול:
+- אישור: בדקו, ודאו עומד במדיניות, אשרו -- המערכת יוצרת משלוח החזרה (אם רלוונטי)
+- דחייה: הוסיפו סיבה -- הלקוח מקבל הודעה
+
+סטטוסים: חדשה / אושרה / נדחתה / במשלוח / התקבלה / הושלמה.
+
+קישור פורטל ההחזרות:
+https://app.shipos.co.il/returns/{store_slug}
+מקומות מומלצים להוספה: תפריט/פוטר, דף מדיניות, אימייל אישור הזמנה, דף מעקב.
+
+שאלות נפוצות:
+- לקוח לא נכנס: בדקו מספר הזמנה, אימייל, חלון פתוח
+- אין קוד אימות: טלפון/אימייל בהזמנה נכון? שירות SMS מוגדר?
+- החזרה ידנית: כן, אפשר ליצור מלוח הבקרה
+
+
+============================================================
+התקנת ShipOS על Wix
+============================================================
+
+דרישות:
+- חנות Wix פעילה עם Wix eCommerce
+- חשבון ShipOS (אפשר ליצור)
+- חשבון חברת משלוחים אחת לפחות
+
+שלב 1: התקנה מ-Wix App Market
+1. Wix Dashboard > אפליקציות > בקר ב-App Market
+2. חפש "ShipOS"
+3. הוסף לאתר > בחר אתר > התקן
+
+שלב 2: אישור הרשאות
+- קריאה/ניהול הזמנות, מוצרים, מילוי הזמנות
+- אשר
+
+שלב 3: יצירת חשבון / התחברות
+- חדש: צור חשבון > מלא פרטים > הירשם > אמת אימייל
+- קיים: התחבר
+טיפ: אותה התחברות עובדת בין WC/Wix/Shopify של ShipOS.
+
+שלב 4: חיבור חברת משלוחים
+1. ShipOS > הגדרות > רישיונות
+2. הוסף רישיון חדש
+3. בחר חברה > הזן פרטים > שמור
+סטטוס Active. נסה משלוח בדיקה.
+
+פתרון בעיות:
+- אפליקציה לא מופיעה: רענן את לוח הבקרה > אפליקציות > ניהול
+- אישור נכשל: נקה מטמון, דפדפן אחר
+- לא יוצר חשבון: אימייל רשום, שכחתי סיסמה
+- אימות רישיון נכשל: בדוק פרטים מול החברה
+
+
+============================================================
+יצירת משלוחים ב-Wix
+============================================================
+
+לפני: ShipOS מותקן ומחובר, רישיון פעיל, יש הזמנות.
+
+משלוח בודד:
+1. אפליקציית ShipOS מ-Wix Dashboard
+2. הזמנות > לחץ הזמנה
+3. צור משלוח
+4. שדות (רובם מתמלאים אוטומטית): חברה, סוג, נמען, כתובת, טלפון, חבילות, הערות
+5. בדוק > צור
+6. מספר מעקב יוצר
+
+משלוחים מרובים:
+1. הזמנות > סמן בתיבות
+2. יצירת משלוחים מרובה > הגדר ברירות מחדל
+3. צור הכל
+- כושל מציג שגיאה, השאר ממשיכים
+- אזהרה: לא ניתן לבטל. ודאו לפני אישור.
+
+משלוח ידני (ללא הזמנה):
+1. צור משלוח / משלוחים > משלוח ידני חדש
+2. מלא ידנית הכל
+3. צור משלוח
+שימושי להחזרות, העברות פנימיות, משלוחים מותאמים.
+
+הבנת השדות:
+- חברת משלוחים (רישיון): לפי מהירות/מיקום/עלות
+- סוג משלוח: רגיל / מהיר / נקודת איסוף / לוקר
+- הערות: לשליח (על המדבקה) / פנימיות
+- חבילות: מספר, משקל ק"ג, מידות ס"מ (אופציונלי)
+
+איך הזמנות Wix מתעדכנות:
+1. ShipOS יוצר משלוח
+2. שולח לחברה
+3. חברה מחזירה מספר מעקב
+4. ShipOS מעדכן Wix:
+   - סטטוס -> מולא
+   - מספר מעקב מצורף
+   - Wix שולח הודעה (אם מוגדר)
+
+מיפוי סטטוסים:
+- משלוח נוצר/בדרך/נמסר -> מולא
+- בוטל -> חוזר לקודם
+
+ביטול הזמנה מולאה: בטלו משלוח ב-ShipOS קודם, אז עדכנו ידנית ב-Wix.
+
+פתרון בעיות:
+- "רישיון לא נמצא": רישיונות
+- אימות כתובת נכשל: שגיאות כתיב
+- אין מספר מעקב: רענן, חברה לפעמים מאחרת
+- מרובה כשל חלקי: שגיאות בודדות, תקנו, נסו שוב
+- לא מולא ב-Wix: חיבור פעיל? אישור מחדש?
+
+
+============================================================
+נקודות איסוף ב-Wix
+============================================================
+
+הפעלה:
+1. ShipOS מ-Wix Dashboard > הגדרות > נקודות איסוף
+2. הפעל אפשר נקודות איסוף
+3. בחר אילו רישיונות מציעים
+4. שמור
+חברות מסוימות לא תומכות.
+
+צפייה במיקומים:
+1. נקודות איסוף > בחר חברה
+2. מפה + רשימה מתעדכנות
+3. כל מיקום: שם, כתובת, עיר, שעות, סוג
+
+תמחור:
+1. לקוח מזין כתובת / גולש במפה
+2. ShipOS בודק מיקומים
+3. מחיר לפי תמחור החברה + כללי תעריף + מרחק (חלק מהחברות)
+
+הגדרת מחירים: הגדרות > תעריפי משלוח > תעריפי נקודות איסוף.
+- תעריף קבוע / סף משלוח חינם / תעריף מבוסס חברה
+טיפ: סף משלוח חינם מעודד הוצאה.
+
+הפעלה/כיבוי נקודות:
+- נקודות איסוף > בחר חברה > מצא נקודה > מתג הפעלה
+- אזהרה: השבתה לא משפיעה על משלוחים שכבר בדרך
+
+חוויית הלקוח:
+1. שלב המשלוח > אפשרות "נקודת איסוף"
+2. בחר נקודת איסוף > מפה/רשימה
+3. בחר -> כתובת מחליפה > תעריף מתעדכן
+
+פתרון בעיות:
+- לא מופיעות בקופה: הפעלה + רישיון תומך
+- מפה לא נטענת: מפתח Google Maps
+- מחירים: הגדרות > תעריפי משלוח
+- מיקום ספציפי חסר: סנכרן
+- בחירה שגויה: תקנו בפרטי הזמנה לפני יצירת משלוח
+
+
+============================================================
+הגדרות Wix
+============================================================
+
+הגדרות כלליות:
+- שם חנות (על מדבקות + הודעות)
+- כתובת חנות (החזרה/שולח)
+- אימייל יצירת קשר
+- טלפון יצירת קשר
+
+ברירות מחדל:
+- חברה / סוג משלוח / משקל / מידות
+- יצירת משלוחים אוטומטית
+
+מדבקות:
+- פורמט: תרמית (10x15) / A4
+- הדפסת מוצרים על מדבקה
+- כלול לוגו
+
+SMS:
+1. הגדרות > SMS > הפעל
+2. בחר אירועים: נוצר / במסירה / נמסר / מוכן לאיסוף
+
+תבניות SMS עם מצייני מקום:
+{customer_name}, {order_number}, {tracking_number}, {tracking_url}, {store_name}, {pickup_location}
+
+דוגמה: "היי {customer_name}, ההזמנה #{order_number} מ-{store_name} נשלחה! מעקב: {tracking_url}"
+
+אזהרה: SMS עלול לעלות לפי תוכנית.
+
+דף מעקב:
+הגדרות > דף מעקב.
+- לוגו / צבע מותג / רקע / כותרת / תחתית / רשתות חברתיות
+- כתובת: https://app.shipos.co.il/track/{tracking_number}
+- מצורפת אוטומטית ב-SMS/אימיילים דרך {tracking_url}
+
+ניהול סנכרון:
+ShipOS שומר על הזמנות מסונכרנות עם Wix דרך התראות.
+אם סנכרון מפסיק:
+1. בדקו חיבורים מציגים מחובר
+2. רענן/רישום מחדש
+3. הרשאות ShipOS ב-Wix > אפליקציות
+4. התקנה מחדש אם צריך
+אזהרה: הסרת סנכרון תעצור עדכוני הזמנות לחלוטין.
+
+
+============================================================
+הדפסת מדבקות ב-Wix
+============================================================
+
+פורמטים:
+- תרמית: 10 x 15 ס"מ, מדפסות תרמיות (Zebra, Dymo)
+- A4: 21 x 29.7 ס"מ, מדפסות משרדיות
+
+ברירת מחדל: הגדרות > כללי (או מדבקות) > בחר פורמט > שמור.
+
+מדבקה בודדת:
+1. משלוחים > מצא משלוח
+2. סמל הדפסת מדבקה
+3. PDF נפתח/יורד
+או מדף ההזמנה: חלק משלוח > הדפסת מדבקה.
+הערה: דורש משלוח שנוצר בהצלחה עם מספר מעקב.
+
+מדבקות מרובות:
+1. משלוחים > סמן
+2. הדפסה מרובה
+3. PDF משולב
+טיפים: ~50-100 לאצווה, אותו פורמט לכולם.
+
+תוכן המדבקה:
+שולח, נמען, ברקוד + מעקב, לוגו חברה, מספר הזמנה, חבילה, רשימת מוצרים (אם הופעל).
+
+התאמה: הדפסת מוצרים, לוגו, סכום גוביינא.
+
+פתרון בעיות:
+- PDF לא נפתח: חוסם פופ-אפים
+- ריקה: לא עובד לגמרי, נסו שוב
+- ברקוד לא נסרק: איכות, לא לשנות גודל
+- פורמט שגוי: ברירת מחדל
+- תרמית מודפסת על A4: גודל נייר 10x15
+- מרובה חסרה: סטטוס בודד
+
+מדפסות מומלצות:
+- נפח גבוה: Zebra ZD220, Zebra GK420d
+- בינוני: Dymo LabelWriter 4XL
+- רגיל: כל מדפסת לייזר/הזרקת דיו (A4 + חיתוך)
+
+
+============================================================
+התקנת ShipOS על Shopify
+============================================================
+
+דרישות:
+- חנות Shopify פעילה
+- חשבון ShipOS
+- חשבון חברת משלוחים
+
+שלב 1: התקנה מ-Shopify App Store
+1. Shopify Admin > אפליקציות > Shopify App Store (או apps.shopify.com)
+2. חפש "ShipOS" > הוסף אפליקציה
+3. אשר התקנה
+
+שלב 2: הרשאות
+- קריאה/ניהול הזמנות
+- קריאה/ניהול מוצרים
+- ניהול מילוי
+- ניהול תעריפי משלוח
+לחץ "התקן אפליקציה"
+
+שלב 3: יצירת חשבון / התחברות (כמו Wix)
+
+שלב 4: בחירת תוכנית
+1. בדקו תוכניות זמינות (פיצ'רים, מגבלות, חודשי/שנתי)
+2. בחרו > הירשמו
+3. אישור דרך מערכת החיוב של Shopify
+ניתן לשנות/לבטל מ-הגדרות > חיוב.
+
+שלב 5: חיבור חברת משלוחים (אותו תהליך)
+
+צ'קליסט אחרי התקנה:
+- כתובת חנות נכונה
+- פורמט מדבקה ברירת מחדל
+- SMS
+- נקודות איסוף
+- סנכרון אוטומטי
+- תעריפי קופה (אם תוכנית Shopify תומכת)
+
+פתרון בעיות:
+- לא מותקנת: צריך הרשאות בעלים/מנהל
+- שגיאת אישור: מטמון, הרחבות
+- לא יוצר חשבון: אימייל רשום
+- הרשמה נכשלת: חיוב Shopify
+- אימות רישיון: פרטים מול החברה
+
+
+============================================================
+יצירת משלוחים ב-Shopify
+============================================================
+
+בודד:
+1. ShipOS מ-Shopify Admin
+2. הזמנות > בחר
+3. צור משלוח
+4. הגדר: חברה, סוג, נמען (מתמלא אוטומטית), חבילות
+5. צור
+6. מספר מעקב
+
+מרובה: דף יצירה מרובה ייעודי. הגדר ברירת מחדל לחברה+סוג, סמן בתיבות, צור הכל. סיכום מציג הצליחו (עם מעקב) וכשלים (עם הסבר).
+
+ידני (ללא הזמנה): משלוחים > משלוח ידני חדש > מלא ידנית. שימושי להחזרות, העברות פנימיות.
+
+אוטומטי: הגדרות > יצירה אוטומטית של משלוח בהזמנה חדשה. הגדר ברירת מחדל לחברה+סוג+סטטוס מפעיל. ודאו ברירות מחדל לפני הפעלה.
+
+מילוי הזמנות:
+- משלוח נוצר -> Shopify מסמן מולא, מצרף מעקב
+- אימייל מ-Shopify ללקוח (לפי הגדרות Shopify)
+
+מיפוי סטטוסים:
+- משלוח נוצר/בדרך/נמסר -> מולא
+- בוטל -> לא מולא (חוזר)
+
+סטטוסים: ממתין / נאסף / בדרך / במסירה / נמסר / נכשל / הוחזר / בוטל
+
+בעיות:
+- יצירה נכשלת: בדוק רישיון + כתובת
+- אין מספר מעקב: חברה לפעמים מאחרת
+- לא מולא ב-Shopify: בדוק auto-fulfill + חיבור
+- אוטומטי לא פועל: סנכרון פעיל?
+- כפול: כבה אוטומטי אם גם ידני
+- מרובה נתקע: אצוות 20-30
+
+
+============================================================
+נקודות איסוף ב-Shopify
+============================================================
+
+אותה מודלת של Wix/WC: רשתות חברות + נקודות עצמאיות שלכם.
+
+צפייה:
+1. ShipOS ב-Shopify Admin > נקודות איסוף
+2. בחר חברה -> רשימה (שם, כתובת, עיר, סוג, סטטוס)
+
+סנכרון: סנכרן עכשיו ליד החברה. מיקומים מהחברות לקריאה בלבד אבל אפשר להפעיל/לכבות.
+
+חיפוש נקודה קרובה:
+- לקוח: מזין כתובת/מאפשר מיקום > תוצאות לפי מרחק
+- מפעיל: בעת יצירת משלוח לנקודת איסוף, מזין עיר -> אפשרויות הקרובות
+
+נקודות איסוף עצמאיות (משלכם):
+1. נקודות איסוף > נקודות עצמאיות > הוסף חדשה
+2. שם, כתובת, עיר, טלפון, שעות, הערות
+3. שמור
+טיפ: מצוין ל"לחץ ואסוף" מחנות פיזית.
+
+תעריפי משלוח בקופה:
+1. הגדרות > שירות ספק (או תעריפי קופה)
+2. הפעל
+3. הגדר: שם, תעריף קבוע, סף משלוח חינם
+חשוב: דורש Shopify Advanced+ או תוסף חישוב תעריפים.
+
+חוויית הלקוח:
+- אפשרות נקודת איסוף בשלב המשלוח > מפה/רשימה > בחר > תעריף מתעדכן
+
+פתרון בעיות:
+- לא בקופה: תעריפים פעילים? תוכנית Shopify? תמיכת חברה?
+- אין נקודות קרובות: מחוץ לכיסוי
+- עצמאיות לא מופיעות: פעילות?
+- תעריפים לא מחושבים: הגדרות תמחור
+- סנכרון: רישיון פעיל? סנכרון ידני?
+- מפה: מפתח
+
+
+============================================================
+הגדרות Shopify
+============================================================
+
+כלליות:
+- שם חנות (מדבקות + הודעות)
+- כתובת אתר (אוטומטית)
+- כתובת שולח (החזרה במדבקות)
+- אימייל / טלפון יצירת קשר
+
+ברירות מחדל למשלוח:
+- חברה / סוג / משקל / מידות
+- מילוי אוטומטי של הזמנות
+- הדפסת מוצרים על מדבקה
+
+ניהול סנכרון:
+חיבורים: הזמנה נוצרה / עודכנה / נמחקה / אפליקציה הוסרה
+רישום מחדש: רענון. אזהרה: הסרה עוצרת סנכרון.
+
+תעריפי קופה:
+הגדרות > שירות ספק (או תעריפי קופה).
+- הפעל, שם שירות, חישוב תעריף, סף משלוח חינם
+- דרישה: Shopify Advanced+ או תוסף
+
+הרשאות (ניתנות בהתקנה):
+- קריאת הזמנות / עדכון / קריאת מוצרים / ניהול מילוי / ניהול משלוח
+- אם משהו לא עובד: התקנה מחדש (אבל מאבדת חיבור; הנתונים נשמרים)
+
+SMS:
+הפעל > בחר אירועים: נוצר / במסירה / נמסר / מוכן לאיסוף / נכשל
+מצייני מקום: {customer_name}, {order_number}, {tracking_number}, {tracking_url}, {store_name}, {pickup_location}, {estimated_delivery}
+
+דוגמה: "היי {customer_name}, ההזמנה #{order_number} שלך נשלחה! מעקב: {tracking_url} - {store_name}"
+
+החזרות / החלפות:
+- חלון החזרה (למשל 14 ימים)
+- סיבות
+- החלפות / זיכוי חנות / אימות / מי משלם משלוח החזרה
+פורטל: https://app.shipos.co.il/returns/{store_slug}
+
+פתרון בעיות:
+- הגדרות לא נשמרות: חיבור / רענון
+- סנכרון לא נרשם: גישה ל-Shopify, רישום מחדש
+- תעריפי קופה לא מופיעים: תוכנית Shopify? הגדרות?
+- SMS לא נשלח: הפעלה? תבניות?
+- שגיאת הרשאה: התקנה מחדש
+
+
+============================================================
+תוכניות וחיוב ב-Shopify
+============================================================
+
+השוואת תוכניות:
+                       בסיסי     סטנדרטי    פרמיום
+משלוחים חודשיים        עד 100    עד 500     ללא הגבלה
+חברות משלוחים          1         3          ללא הגבלה
+יצירה מרובה            כן        כן         כן
+נקודות איסוף           מוגבל     כן         כן
+SMS                    -         כן         כן
+תעריפי קופה            -         כן         כן
+פורטל החזרות           -         -          כן
+תמיכה בעדיפות          -         -          כן
+מיתוג מותאם            -         -          כן
+
+טיפ: רוב החנויות מתחילות בסטנדרטי.
+
+חיוב:
+- דרך מערכת Shopify (בחשבונית)
+- הירשם: הגדרות > חיוב > הירשם > Shopify מציג אישור > אשר
+- חודשי: גמישות / שנתי: ~15-20% הנחה
+
+שדרוג: חיוב > שדרג > בחר גבוה > אשר. מיד פעיל.
+הורדה: חיוב > שנה תוכנית > בחר נמוך > אשר. בסוף תקופה; ללא החזר.
+
+ביטול:
+1. חיוב > בטל מנוי > אשר
+2. פעיל עד סוף תקופה
+3. אחר כך: לא מחויב, אובדן פיצ'רים, נתונים נשמרים 90 ימים
+חזרה: הירשם, נתונים משוחזרים בתוך 90.
+
+שאלות נפוצות:
+- מחויב גם ללא שימוש? כן.
+- ניסיון חינם? בדקו ברישום.
+- חורג ממגבלה? שדרגו או חכו לתקופה חדשה.
+
+
+============================================================
+סקירת API
+============================================================
+
+כתובת בסיס: https://app.shipos.co.il/api/
+
+אימות:
+1. מבוסס רישיון (תוסף): license_key + domain + token
+2. Sanctum (לוח בקרה): Laravel Sanctum Bearer (לא לאינטגרציות חיצוניות)
+
+פורמט בקשה: form data / multipart לבקשות POST. פרמטרים נפוצים: license_key, domain, token, version.
+
+תגובות JSON:
+הצלחה: { "success": true, "data": {...} }
+שגיאה: { "success": false, "message": "...", "errors": {...} }
+
+קודי HTTP: 200, 201, 400, 401, 403, 404, 422, 429, 500.
+
+מגבלות:
+- 60 בקשות/דקה לרישיון
+- 120 בקשות/דקה ל-IP
+- 10 בקשות/דקה לפעולות מרובות
+תגובה ל-429: retry_after שניות. השתמשו ב-exponential backoff.
+
+גרסאות: version=3.1.1 (השתמשו בעדכנית).
+
+נהגי עבודה:
+1. בדקו success לפני data
+2. עברו על errors לפי שדה
+3. נסיון חוזר ל-5xx עם backoff
+4. תיעוד שגיאות
+5. אל תחשפו טוקנים בקוד לקוח/repos
+
+
+============================================================
+נקודות קצה משלוחים
+============================================================
+
+POST /shipping/open_new_order — יצירת משלוח חדש
+חובה: license_key, domain, token, version
+פרמטרי הזמנה: order_id, shipping_first_name, shipping_last_name, shipping_address_1, shipping_city, shipping_phone (חובה); shipping_address_2, shipping_postcode, shipping_email, shipping_company, total_weight, num_of_packages, delivery_type, pickup_point_id, notes, cod_amount, items (אופציונלי).
+
+פורמט items:
+  items[0][name]=Product Name
+  items[0][quantity]=2
+  items[0][sku]=SKU-001
+  items[0][price]=99.90
+  items[0][is_virtual]=false
+
+תגובת הצלחה: order_id, shipping_code, tracking_number, tracking_url, status, label_url.
+
+אזהרה: is_virtual חשוב. פריטים וירטואליים לא דורשים משלוח פיזי.
+
+POST /shipping/get_order_details — פרטי משלוח/הזמנה
+POST /shipping/get_shipping_status — סטטוס + היסטוריה
+POST /shipping/label — מדבקה PDF (label_type אופציונלי: thermal/a4)
+POST /shipping/bulk-label — מדבקות מרובות ב-PDF אחד (order_ids[])
+POST /shipping/order — כל המשלוחים להזמנה (יכולים להיות מספר)
+POST /shipping/change_order_status — שינוי סטטוס (למשל ביטול)
+
+סטטוסים: created, picked_up, in_transit, out_for_delivery, delivered, failed_delivery, returned, cancelled.
+
+אזהרה: לא כל המעברים מותרים (אי אפשר לבטל משלוח שנמסר).
+
+
+============================================================
+נקודות קצה מיקומי איסוף
+============================================================
+
+POST /shipping/pickup_locations
+חובה: license_key, domain, token
+
+תגובת הצלחה כוללת locations[]: id, name, address, city, postcode, phone, type, latitude, longitude, operating_hours, is_active. וגם total + provider.
+
+סוגי מיקום: store, locker, post_office, collection_point.
+
+סינון בצד הלקוח:
+לפי עיר:
+  const telAviv = res.data.locations.filter(l => l.city === "Tel Aviv");
+לפי סוג:
+  const lockers = res.data.locations.filter(l => l.type === "locker");
+לפי קרבה (haversine):
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2-lat1)*Math.PI/180, dLon = (lon2-lon1)*Math.PI/180;
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180) *
+              Math.sin(dLon/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+מטמון: מיקומים לא משתנים תכופות, שמרו 24 שעות, רענון יומי או בסנכרון ידני.
+
+זרימת קופה: בטעינת דף משוך מיקומים, הצג מפה/רשימה, שמור id, ביצירת הזמנה העבר pickup_point_id + delivery_type=pickup.
+
+
+============================================================
+נקודות קצה רישיונות
+============================================================
+
+GET /license/check_license — אימות רישיון
+פרמטרים: license_key, domain
+תגובה: is_active, company info, expires_at, features.
+טיפ: הפעלת תוסף + בדיקת בריאות תקופתית.
+
+GET /license/activate_license — הפעלה וקשירה לדומיין
+פרמטרים: license_key, domain
+אזהרה: רישיון יכול להיות קשור לדומיין אחד בלבד. להעברה: בטלו ואז הפעילו בדומיין החדש.
+
+POST /licenses — רשימת רישיונות (Sanctum)
+Headers: Authorization: Bearer YOUR_SANCTUM_TOKEN, Accept: application/json
+משמש לוח הבקרה / ממשקי ניהול.
+
+מחזור חיים: לא פעיל --activate--> פעיל --(תפוגה/ביטול)--> לא פעיל
+מצבים: פעיל / לא פעיל / פג תוקף
+
+מקרי שימוש:
+- אימות בהפעלה: check, ואם לא activate
+- בריאות תקופתית: cron יומי שבודק; הודיעו אם פג
+
+
+============================================================
+Webhooks
+============================================================
+
+Webhooks מודיעים ל-ShipOS כשאירועים מתרחשים בחנות WooCommerce. הסנכרון האוטומטי משתמש ב-3 אירועים:
+- order_created
+- order_updated
+- order_deleted
+
+תבנית URL: https://app.shipos.co.il/api/wp/webhooks/{wp_site_id}/{event}
+
+שדה is_virtual: התוסף מסיף את השדה לפריטים. מציין אם פיזי או דיגיטלי. אם הכל וירטואלי -> אין משלוח. ודאו שתוסף WC עדיין פעיל.
+
+Payload בפורמט WC REST API Order schema (פרטי לקוח, פריטים, משלוח, מטא). אירועי delete מקבלים payload מינימלי (רק order ID).
+
+Retries (WC מובנה): עד 5 נסיונות עם עיכובים 1m, 5m, 30m, 1h, 6h. אחרי 5 כשלונות מושבתים, צריך הפעלה ידנית.
+
+אבטחה: HMAC-SHA256 בכותרת X-WC-Webhook-Signature.
+
+
+============================================================
+מדריכי חיבור חברות משלוחים (אינדקס)
+============================================================
+
+החברות הפופולריות: אס שליחויות, Done, HFD, YDM, Zig Zag, ש.נ.ל לוגיסטיקה, תמנון שליחויות, Cactus, Orian, שלם משלוחים, צ'יטה שליחויות.
+
+פרמיום: Wolt Drive (משלוח תוך שעה), GetPackage (משלוח באותו יום).
+
+נוספות: LionWheel, Ship UPS (בינלאומי), תפוז, Cargo.
+
+מדריכים כלליים:
+- חברות מבוססות Baldar (30+ ספקים)
+- חברות מבוססות Run Software
+- איסוף עצמי
+
+טבלת עזר לפרטים:
+- חברות Baldar (אס, ש.נ.ל, תמנון, שלם וכו'): קוד חיבור בלבד
+- חברות Run Software + HFD: קוד חיבור + טוקן אימות
+- רוב: קוד חיבור
+- LionWheel: מפתח API + סוד
+- Orian: שם משתמש/סיסמה
+- Wolt Drive: Merchant ID + Venue ID (במקום קוד חיבור)
+
+
+============================================================
+חברות מבוססות Baldar - מדריך כללי
+============================================================
+
+חברות שמשתמשות בפלטפורמת Baldar: אס שליחויות, ש.נ.ל לוגיסטיקה, תמנון שליחויות, שלם משלוחים, ועוד 30+.
+
+דרישות: קוד חיבור (החברה מספקת) + כתובת איסוף.
+חברות Baldar דורשות רק קוד חיבור (אין טוקן/סיסמה).
+
+חיבור:
+1. ניהול WP > ShipOS > הגדרות > רישיונות
+2. "חבר חברת משלוחים חדשה"
+3. בחר את החברה
+4. הזן קוד + כתובת + שם ידידותי
+5. שמור
+
+תכונות אופייניות (משתנות בין חברות):
+- משלוח רגיל: כן
+- משלוח כפול: כן (רוב)
+- נקודות איסוף: כן (רוב)
+- גוביינא: כן (רוב)
+- אקספרס: לא
+- מדבקות: כן
+
+טיפים:
+- כתובת איסוף מדויקת
+- מספר מחסנים = חיבורים נפרדים
+- ניתן לחבר מספר חברות Baldar במקביל
+
+פתרון בעיות:
+- "קוד חיבור לא תקין": ללא רווחים מיותרים
+- חברה לא ברשימה: אולי בשם אחר, פנו לתמיכה
+- חיבור נתקע: רענן ונסה שוב
+- נקודות איסוף לא בקופה: הפעלה באזורי משלוח של WC
+
+
+============================================================
+HFD - מדריך חיבור
+============================================================
+
+HFD: חברה ישראלית גדולה. אינטגרציה חדשה ומהירה.
+
+דרישות:
+- קוד חיבור (HFD מספק)
+- טוקן אימות (HFD מספק) — חובה
+- כתובת איסוף
+
+חשוב: שניהם נדרשים. בלי אחד -> חיבור נכשל.
+
+חיבור:
+1. ShipOS > הגדרות > רישיונות
+2. "חבר חברת משלוחים חדשה" > "HFD"
+3. הזן קוד + טוקן + כתובת איסוף
+4. שמור
+
+תכונות:
+רגיל: כן / כפול: כן / נקודות איסוף: כן / גוביינא: כן / אקספרס: לא / מדבקות: כן
+
+פתרון בעיות:
+- "קוד לא תקין" / "אימות נכשל": בדקו שניהם
+- "טוקן פג": בקשו טוקן חדש מ-HFD ועדכנו
+
+
+============================================================
+תפוז (Tapuz) - מדריך חיבור
+============================================================
+
+תפוז: חברה ישראלית, אינטגרציה חדשה.
+
+דרישות:
+- קוד חיבור (תפוז מספק)
+- מפתח API (תפוז מספק) — חובה
+- כתובת איסוף
+
+חשוב: שניהם.
+
+חיבור: זהה ל-HFD, בחרו "Tapuz", הזינו קוד + מפתח + כתובת.
+
+תכונות:
+רגיל: כן / כפול: לא / נקודות איסוף: לא / גוביינא: לא / אקספרס: לא / מדבקות: כן
+
+
+============================================================
+אס שליחויות - מדריך חיבור
+============================================================
+
+אס שליחויות: אחת מחברות השליחויות הגדולות בישראל. החברה הפופולרית ביותר ב-ShipOS.
+
+דרישות: קוד חיבור (אס מספקת) + כתובת איסוף.
+
+חיבור:
+1. ניהול WP > ShipOS > הגדרות > רישיונות
+2. "חבר חברת משלוחים חדשה" > "אס שליחויות"
+3. הזן קוד + כתובת + שם ידידותי
+4. שמור
+
+תכונות:
+רגיל: כן / כפול: כן / נקודות איסוף: כן / גוביינא: כן / אקספרס: לא / מדבקות: כן
+
+טיפים:
+- כתובת איסוף מדויקת
+- מחסנים מרובים = חיבורים נפרדים
+- נקודות איסוף ניתן להציע בקופה (אזורי משלוח של WC)
+
+פתרון בעיות:
+- "קוד לא תקין": ללא רווחים, ודאו עם אס
+- "חיבור נתקע": רענן ונסה שוב
+- "נקודות איסוף לא בקופה": הפעלה באזורי משלוח
+
+
+============================================================
+Cactus - מדריך חיבור
+============================================================
+
+Cactus: חברה אזורית במסחר אלקטרוני, מתמחה בכיסוי אזורי.
+
+דרישות: קוד חיבור (Cactus מספקת) + כתובת איסוף.
+
+חיבור:
+1. ShipOS > הגדרות > רישיונות
+2. "חבר חברת משלוחים חדשה" > "Cactus"
+3. קוד + כתובת + שם
+4. שמור
+
+תכונות:
+רגיל: כן / כפול: לא / נקודות איסוף: לא / גוביינא: לא / אקספרס: לא / מדבקות: כן
+
+טיפים:
+- בדקו אילו אזורים Cactus מכסה
+- שלבו עם חברה ארצית לכיסוי מלא
+
+
+============================================================
+Cargo - מדריך חיבור
+============================================================
+
+Cargo: חברה ישראלית, תהליך הגדרה פשוט.
+
+דרישות: קוד חיבור (Cargo מספקת) + כתובת איסוף.
+
+חיבור:
+1. ShipOS > הגדרות > רישיונות
+2. "חבר חברת משלוחים חדשה" > "Cargo"
+3. קוד + כתובת + שם
+4. שמור
+
+תכונות:
+רגיל: כן / כפול: לא / נקודות איסוף: לא / גוביינא: לא / אקספרס: לא / מדבקות: כן
+
+
+============================================================
+שלם משלוחים - מדריך חיבור
+============================================================
+
+שלם משלוחים: חברה ישראלית עם משלוח רגיל וכפול, נקודות איסוף, גוביינא.
+
+דרישות: קוד חיבור (שלם מספקת) + כתובת איסוף.
+
+חיבור:
+1. ShipOS > הגדרות > רישיונות
+2. "חבר חברת משלוחים חדשה" > "שלם משלוחים"
+3. קוד + כתובת + שם
+4. שמור
+
+תכונות:
+רגיל: כן / כפול: כן / נקודות איסוף: כן / גוביינא: כן / אקספרס: לא / מדבקות: כן
+
+
+============================================================
+END OF DOCUMENTATION / סוף התיעוד
+============================================================
