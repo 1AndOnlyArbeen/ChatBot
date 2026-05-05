@@ -28,6 +28,8 @@ const PORT = process.env.PORT || 3000;
 
 const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434";
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "mistral";
+const OLLAMA_NUM_CTX = Number(process.env.OLLAMA_NUM_CTX || 4096);
+const MAX_DOCS_CHARS = Number(process.env.MAX_DOCS_CHARS || 6000);
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5";
@@ -239,7 +241,7 @@ DOCS-ONLY RULE:
 
 DOCUMENTATION:
 """
-${documentation}
+${documentation.length > MAX_DOCS_CHARS ? documentation.slice(0, MAX_DOCS_CHARS) + "\n\n[...truncated for speed - increase MAX_DOCS_CHARS for more context...]" : documentation}
 """`;
 }
 
@@ -332,6 +334,7 @@ const ollama = new ChatOllama({
   baseUrl: OLLAMA_URL,
   model: OLLAMA_MODEL,
   temperature: 0.5,
+  numCtx: OLLAMA_NUM_CTX,
 });
 
 const claude = ANTHROPIC_API_KEY ? new Anthropic({ apiKey: ANTHROPIC_API_KEY }) : null;
